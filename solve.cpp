@@ -1,31 +1,8 @@
-#include <stdio.h>
+#include<assert.h>
 #include <math.h>
-#include <assert.h>
+#include "floating.h"
 
-struct coefficients
-{
-    double a, b, c;
-};
-
-enum RootsAmount
-{
-
-    ROOTS_AMOUNT_ERR_CODE = -2,
-    ROOTS_AMOUNT_INF_ROOTS,
-    ROOTS_AMOUNT_NO_ROOTS,
-    ROOTS_AMOUNT_ONE_ROOT,
-    ROOTS_AMOUNT_TWO_ROOTS
-};
-
-const double MIN_DIFF = 1e-3;
-
-bool IsZero(double a);
-bool Compare(double a, double b);
-void TestSolveSquare();
-int PrintEquation(struct coefficients* my_coeff);
-int SolveSquare(struct coefficients my_coeff, double* x1, double* x2);
-int PrintResult(int n, double x1, double x2);
-int UserInput(struct coefficients *my_coeff);
+#include "solve.h"
 
 int SolveSquare(struct coefficients my_coeff, double *x1, double *x2)
 {
@@ -38,12 +15,36 @@ int SolveSquare(struct coefficients my_coeff, double *x1, double *x2)
         {
             return (IsZero(my_coeff.c)) ? ROOTS_AMOUNT_INF_ROOTS : ROOTS_AMOUNT_NO_ROOTS;
         }
-        else
+
+        *x1 = *x2 = (IsZero(my_coeff.c)) ? 0 : -(my_coeff.c / my_coeff.b);
+
+        return ROOTS_AMOUNT_ONE_ROOT;
+    }
+
+    if (IsZero(my_coeff.b))
+    {
+        if (IsZero(my_coeff.c))
         {
-            *x1 = (IsZero(my_coeff.c)) ? 0 : (-my_coeff.c / my_coeff.b);
+            *x1 = *x2 = 0;
 
             return ROOTS_AMOUNT_ONE_ROOT;
         }
+
+        if (my_coeff.c/my_coeff.a < 0)
+        {
+            *x1 = sqrt(-my_coeff.c/my_coeff.a);
+            *x2 = -sqrt(-my_coeff.c/my_coeff.a);
+
+            return ROOTS_AMOUNT_TWO_ROOTS;
+        }
+    }
+
+    if (IsZero(my_coeff.c))
+    {
+        *x1 = 0;
+        *x2 = (-my_coeff.b/my_coeff.a);
+
+        return ROOTS_AMOUNT_TWO_ROOTS;
     }
 
     double d = (my_coeff.b*my_coeff.b) - (4*my_coeff.a*my_coeff.c);
@@ -52,12 +53,14 @@ int SolveSquare(struct coefficients my_coeff, double *x1, double *x2)
     {
         return ROOTS_AMOUNT_NO_ROOTS;
     }
+
     else if (IsZero(d))
     {
         *x1 = *x2 = (IsZero(-my_coeff.b / (2*my_coeff.a))) ? 0 : (-my_coeff.b / (2*my_coeff.a));
 
         return ROOTS_AMOUNT_ONE_ROOT;
     }
+
     else if (d > 0)
     {
         *x1 = (IsZero((-my_coeff.b + sqrt(d)) / (2*my_coeff.a))) ? 0 : ((-my_coeff.b + sqrt(d)) / (2*my_coeff.a));

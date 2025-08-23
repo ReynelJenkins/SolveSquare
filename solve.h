@@ -1,0 +1,20 @@
+#ifndef SOLVE_H
+#define SOLVE_H
+
+struct coefficients
+{
+    double a, b, c;
+};
+
+enum RootsAmount
+{
+
+    ROOTS_AMOUNT_ERR_CODE = -2,
+    ROOTS_AMOUNT_INF_ROOTS,
+    ROOTS_AMOUNT_NO_ROOTS,
+    ROOTS_AMOUNT_ONE_ROOT,
+    ROOTS_AMOUNT_TWO_ROOTS
+};
+
+int SolveSquare(struct coefficients my_coeff, double* x1, double* x2);
+#endif //SOLVE_H

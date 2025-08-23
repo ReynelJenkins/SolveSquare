@@ -1,31 +1,8 @@
 #include <stdio.h>
-#include <math.h>
-#include <assert.h>
+#include "solve.h"
+#include "floating.h"
 
-struct coefficients
-{
-    double a, b, c;
-};
-
-enum RootsAmount
-{
-
-    ROOTS_AMOUNT_ERR_CODE = -2,
-    ROOTS_AMOUNT_INF_ROOTS,
-    ROOTS_AMOUNT_NO_ROOTS,
-    ROOTS_AMOUNT_ONE_ROOT,
-    ROOTS_AMOUNT_TWO_ROOTS
-};
-
-const double MIN_DIFF = 1e-3;
-
-bool IsZero(double a);
-bool Compare(double a, double b);
-void TestSolveSquare();
-int PrintEquation(struct coefficients* my_coeff);
-int SolveSquare(struct coefficients my_coeff, double* x1, double* x2);
-int PrintResult(int n, double x1, double x2);
-int UserInput(struct coefficients *my_coeff);
+#include "unit_test.h"
 
 void TestSolveSquare()
 {
@@ -42,11 +19,7 @@ void TestSolveSquare()
                 double b = b_i * 0.1;
                 double c = c_i * 0.1;
 
-                struct coefficients test_coefficients;
-
-                test_coefficients.a = a;
-                test_coefficients.b = b;
-                test_coefficients.c = c;
+                struct coefficients test_coefficients = {a, b, c};
 
                 int nRoots = SolveSquare(test_coefficients, &x1, &x2);
 
