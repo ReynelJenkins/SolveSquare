@@ -36,7 +36,7 @@ int main()
         UserInput(&UserCoeff);
         int nRoots = SolveSquare(UserCoeff, &x1, &x2);
         PrintResult(nRoots, x1, x2);
-        TestSolveSquare();
+        //TestSolveSquare();
     }
     return 0;
 }
@@ -71,7 +71,7 @@ int UserInput(struct coefficients *mycoeff)
 
 bool IsZero(double a)
 {
-    return (fabs(a) <= MIN_DIFF) ? true : false;
+    return (a <= MIN_DIFF && a >= -MIN_DIFF) ? true : false;
 }
 
 int SolveSquare(struct coefficients mycoeff, double *x1, double *x2)
@@ -221,7 +221,7 @@ void TestSolveSquare()
     {
         for (double b = -3; b <= 3; b += 0.5)
         {
-            for (double c = -3; c <= 3; c += 0.5)
+            for (double c = -3; c <= 3; b += 0.5)
             {
                 double x1 = 0, x2 = 0;
 
@@ -244,9 +244,10 @@ void TestSolveSquare()
                             printf("FAILED a = %lg b = %lg c = %lg x1 = %lg x2 = %lg", a, b, c, x1, x2);
                         break;
                     default:
-                        printf("");
+                        printf("Error\n");
                         break;
                 }
+
             }
         }
     }
