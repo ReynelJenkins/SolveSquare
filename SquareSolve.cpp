@@ -5,66 +5,74 @@
 struct coefficients
 {
     double a, b, c;
-
 };
 
 enum RootsAmount
 {
-    ERR_CODE = -2,
-    INF_ROOTS,
-    NO_ROOTS,
-    ONE_ROOT,
-    TWO_ROOTS
+
+    ROOTS_AMOUNT_ERR_CODE = -2,
+    ROOTS_AMOUNT_INF_ROOTS,
+    ROOTS_AMOUNT_NO_ROOTS,
+    ROOTS_AMOUNT_ONE_ROOT,
+    ROOTS_AMOUNT_TWO_ROOTS
 };
+
+// main.cpp
+// io.cpp
+// floating.cpp fp_helpers.cpp floating point
+// solve.cpp
 
 const double MIN_DIFF = 1e-3;
 
 bool IsZero(double a);
 bool Compare(double a, double b);
 void TestSolveSquare();
-int PrintEquation(struct coefficients mycoeff);
-int SolveSquare(struct coefficients mycoeff, double* x1, double* x2);
+int PrintEquation(struct coefficients* my_coeff);
+int SolveSquare(struct coefficients my_coeff, double* x1, double* x2);
 int PrintResult(int n, double x1, double x2);
-int UserInput(struct coefficients *mycoeff);
+int UserInput(struct coefficients *my_coeff);
 
 int main()
 {
-    while (1)
+    while (true)
     {
-        struct coefficients UserCoeff = {0, 0, 0};
+        struct coefficients user_coeff = {0, 0, 0};
         double x1 = 0, x2 = 0;
-        UserInput(&UserCoeff);
-        int nRoots = SolveSquare(UserCoeff, &x1, &x2);
-        PrintResult(nRoots, x1, x2);
+
+        UserInput(&user_coeff);
+
+        int n_roots = SolveSquare(user_coeff, &x1, &x2);
+        PrintResult(n_roots, x1, x2);
+
         TestSolveSquare();
     }
+
     return 0;
 }
 
-// Верно для небольших a и b
+// True for small a & b
 bool Compare(double a, double b)
 {
     return (fabs(a - b) <= MIN_DIFF) ? true : false;
 }
 
-int UserInput(struct coefficients *mycoeff)
+int UserInput(struct coefficients* my_coeff)
 {
-    //assert
+    assert(my_coeff);
 
-    printf("Programm for solving an equation of the type ax^2 + bx + c = 0\n");
+    printf("Program for solving an equation of the type ax^2 + bx + c = 0\n");
     printf("Enter the coefficients: a, b, c\n");
-    double a = 0, b = 0, c = 0;
-    printf("a = ");
-    scanf("%lg", &a);
-    printf("b = ");
-    scanf("%lg", &b);
-    printf("c = ");
-    scanf("%lg", &c);
 
-    mycoeff->a = a;
-    mycoeff->b = b;
-    mycoeff->c = c;
-    PrintEquation(*mycoeff);
+    printf("a = ");
+    scanf("%lg", &my_coeff->a);   // sscanf
+
+    printf("b = ");
+    scanf("%lg", &my_coeff->b);
+
+    printf("c = ");
+    scanf("%lg", &my_coeff->c);
+
+    PrintEquation(my_coeff);
 
     return 0;
 }
@@ -74,112 +82,112 @@ bool IsZero(double a)
     return (fabs(a) <= MIN_DIFF) ? true : false;
 }
 
-int SolveSquare(struct coefficients mycoeff, double *x1, double *x2)
+int SolveSquare(struct coefficients my_coeff, double *x1, double *x2)
 {
     assert(x1);
     assert(x2);
 
-    if (IsZero(mycoeff.a))
+    if (IsZero(my_coeff.a))
     {
-        if (IsZero(mycoeff.b))
+        if (IsZero(my_coeff.b))
         {
-            return (IsZero(mycoeff.c)) ? INF_ROOTS : NO_ROOTS;
+            return (IsZero(my_coeff.c)) ? ROOTS_AMOUNT_INF_ROOTS : ROOTS_AMOUNT_NO_ROOTS;
         }
         else
         {
-            *x1 = (IsZero(mycoeff.c)) ? 0 : (-mycoeff.c / mycoeff.b);
+            *x1 = (IsZero(my_coeff.c)) ? 0 : (-my_coeff.c / my_coeff.b);
 
-            return ONE_ROOT;
+            return ROOTS_AMOUNT_ONE_ROOT;
         }
     }
 
-    double d = (mycoeff.b*mycoeff.b) - (4*mycoeff.a*mycoeff.c);
+    double d = (my_coeff.b*my_coeff.b) - (4*my_coeff.a*my_coeff.c);
 
     if (d < 0)
     {
-        return NO_ROOTS;
+        return ROOTS_AMOUNT_NO_ROOTS;
     }
     else if (IsZero(d))
     {
-        *x1 = *x2 = (IsZero(-mycoeff.b / (2*mycoeff.a))) ? 0 : (-mycoeff.b / (2*mycoeff.a));
+        *x1 = *x2 = (IsZero(-my_coeff.b / (2*my_coeff.a))) ? 0 : (-my_coeff.b / (2*my_coeff.a));
 
-        return ONE_ROOT;
+        return ROOTS_AMOUNT_ONE_ROOT;
     }
     else if (d > 0)
     {
-        *x1 = (IsZero((-mycoeff.b + sqrt(d)) / (2*mycoeff.a))) ? 0 : ((-mycoeff.b + sqrt(d)) / (2*mycoeff.a));
-        *x2 = (IsZero((-mycoeff.b - sqrt(d)) / (2*mycoeff.a))) ? 0 : ((-mycoeff.b - sqrt(d)) / (2*mycoeff.a));
+        *x1 = (IsZero((-my_coeff.b + sqrt(d)) / (2*my_coeff.a))) ? 0 : ((-my_coeff.b + sqrt(d)) / (2*my_coeff.a));
+        *x2 = (IsZero((-my_coeff.b - sqrt(d)) / (2*my_coeff.a))) ? 0 : ((-my_coeff.b - sqrt(d)) / (2*my_coeff.a));
 
-        return TWO_ROOTS;
+        return ROOTS_AMOUNT_TWO_ROOTS;
     }
 
-    return ERR_CODE;
+    return ROOTS_AMOUNT_ERR_CODE;
 }
 
-int PrintEquation(struct coefficients mycoeff)
+int PrintEquation(struct coefficients* my_coeff)
 {
-    int FirstPrint = 0;
+    int first_print = 0;
 
-    if (!IsZero(mycoeff.a))
+    if (!IsZero(my_coeff->a))
     {
-        if (Compare(mycoeff.a, 1))
+        if (Compare(my_coeff->a, 1))
             printf("X^2");
-        else if (Compare(mycoeff.a, -1))
+        else if (Compare(my_coeff->a, -1))
             printf("-X^2");
         else
-            printf("%lgX^2", mycoeff.a);
-        FirstPrint = 1;
+            printf("%lgX^2", my_coeff->a);
+        first_print = 1;
     }
 
-    if (!IsZero(mycoeff.b))
+    if (!IsZero(my_coeff->b))
     {
-        if (FirstPrint == 0)
+        if (first_print == 0)
         {
-            FirstPrint = 1;
-            if (Compare(mycoeff.b, 1))
+            first_print = 1;
+            if (Compare(my_coeff->b, 1))
                 printf("X");
-            else if (Compare(mycoeff.b, 1))
+            else if (Compare(my_coeff->b, 1))
                 printf("-X");
             else
             {
-                if (mycoeff.b > 0)
-                    printf("%lgX", mycoeff.b);
+                if (my_coeff->b > 0)
+                    printf("%lgX", my_coeff->b);
                 else
-                    printf("-%lgX", fabs(mycoeff.b));
+                    printf("-%lgX", fabs(my_coeff->b));
             }
         }
         else
         {
-            if (Compare(mycoeff.b, 1))
+            if (Compare(my_coeff->b, 1))
                 printf(" + X");
-            else if (Compare(mycoeff.b, -1))
+            else if (Compare(my_coeff->b, -1))
                 printf(" - X");
             else
             {
-                if (mycoeff.b > 0)
-                    printf(" + %lgX", mycoeff.b);
+                if (my_coeff->b > 0)
+                    printf(" + %lgX", my_coeff->b);
                 else
-                    printf(" - %lgX", fabs(mycoeff.b));
+                    printf(" - %lgX", fabs(my_coeff->b));
             }
         }
     }
 
-    if (!IsZero(mycoeff.c))
+    if (!IsZero(my_coeff->c))
     {
-        if (FirstPrint == 0)
+        if (first_print == 0)
         {
-            FirstPrint = 1;
-            printf("%lg", mycoeff.c);
+            first_print = 1;
+            printf("%lg", my_coeff->c);
         }
         else
         {
-            if (mycoeff.c > 0)
-                printf(" + %lg", mycoeff.c);
+            if (my_coeff->c > 0)
+                printf(" + %lg", my_coeff->c);
             else
-                printf(" - %lg", fabs(mycoeff.c));
+                printf(" - %lg", fabs(my_coeff->c));
         }
     }
-    if  (IsZero(mycoeff.c) && FirstPrint == 0)
+    if  (IsZero(my_coeff->c) && first_print == 0)
         printf("0");
 
     printf(" = 0\n");
@@ -191,19 +199,19 @@ int PrintResult(int n, double x1, double x2)
 {
     switch (n)
     {
-        case NO_ROOTS:
+        case ROOTS_AMOUNT_NO_ROOTS:
             printf("No roots\n");
             break;
-        case ONE_ROOT:
+        case ROOTS_AMOUNT_ONE_ROOT:
             printf("Single root x = %lg\n", x1);
             break;
-        case TWO_ROOTS:
+        case ROOTS_AMOUNT_TWO_ROOTS:
             printf("Roots: x1 = %lg, x2 = %lg\n", x1, x2);
             break;
-        case INF_ROOTS:
+        case ROOTS_AMOUNT_INF_ROOTS:
             printf("Any number is a root\n");
             break;
-        case ERR_CODE:
+        case ROOTS_AMOUNT_ERR_CODE:
             printf("Error (Finding roots)\n");
             break;
         default:
@@ -217,35 +225,37 @@ int PrintResult(int n, double x1, double x2)
 void TestSolveSquare()
 {
 
-    for (double a = -3; a <= 3; a += 0.5)
+    for (int a_i = -100; a_i <= 100; a_i += 1)  // int
     {
-        for (double b = -3; b <= 3; b += 0.5)
+        for (int b_i = -100; b_i <= 100; b_i += 1)
         {
-            for (double c = -3; c <= 3; c += 0.5)
+            for (int c_i = -100; c_i <= 100; c_i += 1)
             {
                 double x1 = 0, x2 = 0;
 
-                struct coefficients TestCoefficients;
+                double a = a_i * 0.1;
+                double b = b_i * 0.1;
+                double c = c_i * 0.1;
 
-                TestCoefficients.a = a;
-                TestCoefficients.b = b;
-                TestCoefficients.c = c;
+                struct coefficients test_coefficients;
 
-                int nRoots = SolveSquare(TestCoefficients, &x1, &x2);
+                test_coefficients.a = a;
+                test_coefficients.b = b;
+                test_coefficients.c = c;
+
+                int nRoots = SolveSquare(test_coefficients, &x1, &x2);
 
                 switch (nRoots)
                 {
-                    case ONE_ROOT:
+                    case ROOTS_AMOUNT_ONE_ROOT:
                         if (!IsZero(a*x1*x1 + b*x1 + c))
-                            printf("FAILED a = %lg b = %lg c = %lg x1 = %lg", a, b, c, x1);
+                            printf("FAILED a = %lg b = %lg c = %lg x1 = %lg\n", a, b, c, x1);
                         break;
-                    case TWO_ROOTS:
-                        if (!IsZero(a*x1*x1 + b*x1 + c) && !IsZero(a*(x2*x2) + b*x2 + c))
-                            printf("FAILED a = %lg b = %lg c = %lg x1 = %lg x2 = %lg", a, b, c, x1, x2);
+                    case ROOTS_AMOUNT_TWO_ROOTS:
+                        if (!IsZero(a*x1*x1 + b*x1 + c) && !IsZero(a*x2*x2 + b*x2 + c))
+                            printf("FAILED a = %lg b = %lg c = %lg x1 = %lg x2 = %lg\n", a, b, c, x1, x2);
                         break;
-                    default:
-                        printf("");
-                        break;
+                    default:;
                 }
             }
         }
