@@ -1,9 +1,9 @@
 #ifndef IO_H
 #define IO_H
 
-int PrintEquation(const struct coefficients* my_coeff);
+int PrintEquation(const coefficients* my_coeff);
 int PrintResult(int n, double x1, double x2);
-int UserInput(struct coefficients *my_coeff);
-double InputNumber(const char *prompt);
+int UserInput(coefficients* my_coeff);
+double InputNumber(const char* prompt);
 
 #endif  //IO_H

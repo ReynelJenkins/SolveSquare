@@ -1,18 +1,21 @@
 #include <stdio.h>
 #include <assert.h>
 #include <math.h>
+#include <stdlib.h>
+#include <string.h>
+#include <TXLib.h>
 
 #include "floating.h"
 #include "solve.h"
 
 #include "io.h"
 
-int UserInput(struct coefficients* my_coeff)
+int UserInput(struct Coefficients* my_coeff)
 {
     assert(my_coeff);
 
     printf("Program for solving an equation of the type ax^2 + bx + c = 0\n");
-    printf("Enter the coefficients: a, b, c\n");
+    printf("Enter the coefficients: a, b, c:\n\n");
 
     my_coeff->a = InputNumber("a = ");
     my_coeff->b = InputNumber("b = ");
@@ -23,9 +26,11 @@ int UserInput(struct coefficients* my_coeff)
     return 0;
 }
 
-int PrintEquation(const struct coefficients* my_coeff)
+int PrintEquation(const struct Coefficients* my_coeff)
 {
     int first_print = 0;
+
+    printf("\n");
 
     if (!IsZero(my_coeff->a))
     {
@@ -89,13 +94,21 @@ int PrintEquation(const struct coefficients* my_coeff)
     if  (IsZero(my_coeff->c) && first_print == 0)
         printf("0");
 
-    printf(" = 0\n");
+    printf(" = 0\n\n");
 
     return 0;
 }
 
 int PrintResult(int n, double x1, double x2)
 {
+
+    //const char* aaa = "123123"; Why not! const char* const????
+
+    //char x[3] = {1, 2, 3};
+    //char x[4] = {'1', '2', '3', '\0 const struct const 123???
+
+    //const char* x = "123";
+
     switch (n)
     {
         case ROOTS_AMOUNT_NO_ROOTS:
@@ -105,7 +118,7 @@ int PrintResult(int n, double x1, double x2)
             printf("Single root x = %lg\n", x1);
             break;
         case ROOTS_AMOUNT_TWO_ROOTS:
-            printf("Roots: x1 = %lg, x2 = %lg\n", x1, x2);
+            printf("Two roots: x1 = %lg, x2 = %lg\n", x1, x2);
             break;
         case ROOTS_AMOUNT_INF_ROOTS:
             printf("Any number is a root\n");
@@ -118,37 +131,45 @@ int PrintResult(int n, double x1, double x2)
             break;
     }
 
+    printf("\n");
+
     return 0;
 }
 
 double InputNumber(const char *prompt)
 {
-    char buffer[100];
-    double value;
-    int result;
+    char buf[100] = {0}; // K&R
+    char *end_ptr;
+    double value = 0;
 
-    do {
+    do
+    {
+        memset(buf, 0, sizeof(buf));
+
         printf("%s", prompt);
-        fflush(stdout); // Гарантируем вывод prompt
+        fflush(stdout);
+        int curr_pos = 0;
 
-        // Читаем всю строку в буфер
-        if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
-            printf("Error reading input! Please try again.\n");
+        for (curr_pos = 0; curr_pos != sizeof(buf) - 1; ++curr_pos)
+        {
+            int c = getchar();
+            if (c == EOF || c == '\n')
+            {
+                break;
+            }
 
-            // Очищаем буфер stdin в случае ошибки
-            int c;
-            while ((c = getchar()) != '\n' && c != EOF);
-
-            continue;
+            buf[curr_pos] = (char)c;
         }
 
-        // Пытаемся преобразовать содержимое буфера в число
-        result = sscanf(buffer, "%lg", &value);
-
-        if (result != 1) {
-            printf("Error: Please enter a valid number! Try again.\n");
+        if (curr_pos == sizeof(buf)-1)
+        {
+            printf("Buffer Overflow!\n");
+            fflush(stdin);
         }
-    } while (result != 1);
+
+        value = strtod(buf, &end_ptr);
+
+    } while (end_ptr == &buf[0] || *end_ptr != 0);
 
     return value;
 }

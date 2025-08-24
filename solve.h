@@ -1,7 +1,7 @@
 #ifndef SOLVE_H
 #define SOLVE_H
 
-struct coefficients
+struct Coefficients
 {
     double a, b, c;
 };
@@ -16,6 +16,6 @@ enum RootsAmount
     ROOTS_AMOUNT_TWO_ROOTS = 2
 };
 
-int SolveSquare(const struct coefficients *my_coeff, double* x1, double* x2);
+int SolveSquare(const struct Coefficients *my_coeff, double* x1, double* x2);
 
 #endif //SOLVE_H

@@ -1,0 +1,114 @@
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042E154 в функции InputNumber() в файле C:/Users/verfi/Documents/GitHub/SquareSolve/io.cpp на строке 169. Попытка прочесть данные по адресу NULL в модуле c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x005081DC (32-bit), Flags: Cmdre0, Thread: 0x46C8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042E154 in c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe: InputNumber() at C:/Users/verfi/Documents/GitHub/SquareSolve/io.cpp:169:
+
+    167:             fflush(stdin);
+    168:         }
+=>  169:         printf("%c", *end_ptr);
+    170:         value = strtod(buf, &end_ptr);
+    171: 
+
+# 1 0x0042DCF9 in c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe: UserInput() at C:/Users/verfi/Documents/GitHub/SquareSolve/io.cpp:20:
+
+     18:     printf("Enter the coefficients: a, b, c:\n\n");
+     19: 
+=>   20:     my_coeff->a = InputNumber("a = ");
+     21:     my_coeff->b = InputNumber("b = ");
+     22:     my_coeff->c = InputNumber("c = ");
+
+# 2 0x00401408 in c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe: main() at C:/Users/verfi/Documents/GitHub/SquareSolve/main.cpp:11:
+
+      9:     double x1 = 0, x2 = 0;
+     10: 
+=>   11:     UserInput(&user_coeff);
+     12: 
+     13:     int n_roots = SolveSquare(&user_coeff, &x1, &x2);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\verfi\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 24 2025 19:04:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 24 2025 19:04:15
+
+Run file:	c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe
+Directory:	C:\Users\verfi\Documents\GitHub\SquareSolve
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042E154 в функции InputNumber() в файле C:/Users/verfi/Documents/GitHub/SquareSolve/io.cpp на строке 169. Попытка прочесть данные по адресу NULL в модуле c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400], Instance: 0x005081DC (32-bit), Flags: Cmdre0, Thread: 0x46C8 (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042E154 in c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe: InputNumber() at C:/Users/verfi/Documents/GitHub/SquareSolve/io.cpp:169:
+
+    167:             fflush(stdin);
+    168:         }
+=>  169:         printf("%c", *end_ptr);
+    170:         value = strtod(buf, &end_ptr);
+    171: 
+
+# 1 0x0042DCF9 in c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe: UserInput() at C:/Users/verfi/Documents/GitHub/SquareSolve/io.cpp:20:
+
+     18:     printf("Enter the coefficients: a, b, c:\n\n");
+     19: 
+=>   20:     my_coeff->a = InputNumber("a = ");
+     21:     my_coeff->b = InputNumber("b = ");
+     22:     my_coeff->c = InputNumber("c = ");
+
+# 2 0x00401408 in c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe: main() at C:/Users/verfi/Documents/GitHub/SquareSolve/main.cpp:11:
+
+      9:     double x1 = 0, x2 = 0;
+     10: 
+=>   11:     UserInput(&user_coeff);
+     12: 
+     13:     int n_roots = SolveSquare(&user_coeff, &x1, &x2);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 174, Date: 2025-08-03 17:59:06 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\users\verfi\downloads\codeblocks\mingw\include\txlib.h
+Compiled:	Aug 24 2025 19:04:13, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Aug 24 2025 19:04:15
+
+Run file:	c:\Users\verfi\Documents\GitHub\SquareSolve\SolveSquare.exe
+Directory:	C:\Users\verfi\Documents\GitHub\SquareSolve
+
+--------------------------------------------------

@@ -5,7 +5,7 @@
 
 #include "solve.h"
 
-int SolveSquare(const struct coefficients *my_coeff, double *x1, double *x2)   //struct const coefficients
+int SolveSquare(const struct Coefficients *my_coeff, double *x1, double *x2)
 {
     assert(x1);
     assert(x2);

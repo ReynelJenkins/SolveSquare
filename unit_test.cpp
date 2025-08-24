@@ -20,7 +20,7 @@ void TestSolveSquare()
                 double b = b_i * 0.1;
                 double c = c_i * 0.1;
 
-                struct coefficients test_coefficients = {a, b, c};
+                struct Coefficients test_coefficients = {a, b, c};
 
                 int n_roots = SolveSquare(&test_coefficients, &x1, &x2);
 
