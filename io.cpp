@@ -3,7 +3,6 @@
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
-#include <TXLib.h>
 
 #include "floating.h"
 #include "solve.h"
