@@ -11,7 +11,7 @@ int main()
 
         UserInput(&user_coeff);
 
-        int n_roots = SolveSquare(user_coeff, &x1, &x2);
+        int n_roots = SolveSquare(&user_coeff, &x1, &x2);
         PrintResult(n_roots, x1, x2);
 
         TestSolveSquare();

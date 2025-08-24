@@ -129,20 +129,17 @@ double InputNumber(const char *prompt)
 
     do {
         printf("%s", prompt);
-        fflush(stdout); // Гарантируем вывод prompt
+        fflush(stdout);
 
-        // Читаем всю строку в буфер
         if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
             printf("Error reading input! Please try again.\n");
 
-            // Очищаем буфер stdin в случае ошибки
             int c;
             while ((c = getchar()) != '\n' && c != EOF);
 
             continue;
         }
 
-        // Пытаемся преобразовать содержимое буфера в число
         result = sscanf(buffer, "%lg", &value);
 
         if (result != 1) {

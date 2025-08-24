@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #include "solve.h"
 #include "floating.h"
 
@@ -21,9 +22,9 @@ void TestSolveSquare()
 
                 struct coefficients test_coefficients = {a, b, c};
 
-                int nRoots = SolveSquare(test_coefficients, &x1, &x2);
+                int n_roots = SolveSquare(&test_coefficients, &x1, &x2);
 
-                switch (nRoots)
+                switch (n_roots)
                 {
                     case ROOTS_AMOUNT_ONE_ROOT:
                         if (!IsZero(a*x1*x1 + b*x1 + c))
