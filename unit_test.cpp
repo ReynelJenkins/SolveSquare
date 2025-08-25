@@ -19,7 +19,7 @@ void TestSolveSquare()
                 double a = a_i * 0.1;
                 double b = b_i * 0.1;
                 double c = c_i * 0.1;
-                i++;
+
                 struct Params test_equation = {.coeffs = {a, b, c}};
 
                 int n_roots = SolveSquare(&test_equation);

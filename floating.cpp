@@ -11,7 +11,7 @@ bool IsZero(double val)
 {
     return (fabs(val) <= MIN_DIFF) ? true : false;
 }
- /*
+/*
 double DoOperation(double val1, double val2, int op_type)
 {
     switch(op_type)
