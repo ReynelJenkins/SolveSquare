@@ -2,12 +2,22 @@
 
 #include "floating.h"
 
-bool Compare(double a, double b)
+bool Compare(double val1, double val2)
 {
-    return (fabs(a - b) <= MIN_DIFF) ? true : false;
+    return (fabs(val1 - val2) <= MIN_DIFF) ? true : false;
 }
 
-bool IsZero(double a)
+bool IsZero(double val)
 {
-    return (fabs(a) <= MIN_DIFF) ? true : false;
+    return (fabs(val) <= MIN_DIFF) ? true : false;
 }
+ /*
+double DoOperation(double val1, double val2, int op_type)
+{
+    switch(op_type)
+    {
+        case OP_ADD:
+            if MAX_DOUBLE_VALUE - val2
+    }
+
+} */

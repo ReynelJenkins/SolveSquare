@@ -1,19 +1,21 @@
+#include <TXLib.h>
 #include <stdio.h>
+
 #include "io.h"
 #include "solve.h"
 #include "unit_test.h"
 
 int main()
 {
-    struct Coefficients user_coeff = {0, 0, 0};
-    double x1 = 0, x2 = 0;
+    Params equation = {};
 
-    UserInput(&user_coeff);
+    UserInput(&(equation.coeffs));
 
-    int n_roots = SolveSquare(&user_coeff, &x1, &x2);
-    PrintResult(n_roots, x1, x2);
+    equation.result.n_roots = SolveSquare(&equation);
 
-    TestSolveSquare();
+    PrintResult(&(equation.result)); // TODO: почитать про этапы компил€ции
 
+    TestSolveSquare();               // TODO: Makefile
+                                     // TODO: FSM, Readme, licence, doxygen
     return 0;
 }

@@ -98,15 +98,13 @@ int PrintEquation(const struct Coefficients* my_coeff)
     return 0;
 }
 
-int PrintResult(int n, double x1, double x2)
+int PrintResult(struct Result* my_result)
 {
 
-    //const char* aaa = "123123"; Why not! const char* const????
-
-    //char x[3] = {1, 2, 3};
-    //char x[4] = {'1', '2', '3', '\0 const struct const 123???
-
-    //const char* x = "123";
+    //const <-(нельзя менять массив) char* const <-(нельзя менять указатель) aaa = "123123"; Why not! const char* const????
+    int n = my_result->n_roots;
+    double x1 = my_result->x1;
+    double x2 = my_result->x2;
 
     switch (n)
     {
@@ -137,7 +135,7 @@ int PrintResult(int n, double x1, double x2)
 
 double InputNumber(const char *prompt)
 {
-    char buf[100] = {0}; // K&R
+    char buf[BUF_SIZE]; // K&R
     char *end_ptr;
     double value = 0;
 
@@ -160,15 +158,64 @@ double InputNumber(const char *prompt)
             buf[curr_pos] = (char)c;
         }
 
-        if (curr_pos == sizeof(buf)-1)
+        if (curr_pos == sizeof(buf) - 1)
         {
             printf("Buffer Overflow!\n");
-            fflush(stdin);
+            //fflush(stdin);
+            while(getchar() != '\n')
+                ;
+            continue;
+        }
+
+        if (strcmp(buf, "meow") == 0)
+        {
+            cat();
+            continue;
         }
 
         value = strtod(buf, &end_ptr);
 
-    } while (end_ptr == &buf[0] || *end_ptr != 0);
+        if (end_ptr == &buf[0] || *end_ptr != 0)
+        {
+            printf("Invalid Input!!! Try again...\n");
+            continue;
+        }
+
+        if (value == HUGE_VAL || value == HUGE_VALF || value == HUGE_VALL)
+        {
+            printf("Overflow! Value too large.\n");
+            continue;
+        }
+
+        if (isnan(value))
+        {
+            printf("Invalid Input! Not a number.\n");
+            continue;
+        }
+
+        if (isinf(value))
+        {
+            printf("Invalid Input! Infinity.\n");
+            continue;
+        }
+
+        if (!isfinite(value))
+        {
+            printf("Invalid Input!\n");
+            continue;
+        }
+
+        break;
+
+    } while (true);
 
     return value;
+}
+
+void cat()
+{
+    printf("\n");
+    printf("  /\\_/\\  \n");
+    printf(" ( o.o ) \n");
+    printf("  > ^ <  \n");
 }
