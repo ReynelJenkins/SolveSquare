@@ -24,6 +24,7 @@ int PrintResult(struct Result* my_result);
 int UserInput(struct Coefficients* my_coeff);
 double InputNumber(const char* prompt);
 void PrintCat();
+void PrintTestError(const struct Params *failed_test_params, double x1_ref, double x2_ref);
 
 const int BUF_SIZE = 100;
 

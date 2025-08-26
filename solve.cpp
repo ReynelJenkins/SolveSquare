@@ -7,6 +7,13 @@
 
 int SolveSquare(const struct Coefficients *coeffs, struct Result *result)
 {
+
+// #define NDEBUG
+// ASSERT()
+// Test Driven Development
+
+// K & R
+
     assert(coeffs);
     assert(result);
 
@@ -33,9 +40,7 @@ int SolveSquare(const struct Coefficients *coeffs, struct Result *result)
                 return ROOTS_AMOUNT_ONE_ROOT;
             }
 
-            printf("Root is not finite!\n");
-
-            return ROOTS_AMOUNT_ERR_CODE;
+            return ROOTS_AMOUNT_ROOT_NOT_FINITE;
         }
 
         return ROOTS_AMOUNT_ONE_ROOT;
@@ -63,8 +68,7 @@ int SolveSquare(const struct Coefficients *coeffs, struct Result *result)
             return ROOTS_AMOUNT_NO_ROOTS;
         }
 
-        printf("Root is not finite!\n");
-        return ROOTS_AMOUNT_ERR_CODE;
+        return ROOTS_AMOUNT_ROOT_NOT_FINITE;
     }
 
     if (IsZero(c))
@@ -77,18 +81,14 @@ int SolveSquare(const struct Coefficients *coeffs, struct Result *result)
             return ROOTS_AMOUNT_TWO_ROOTS;
         }
 
-        printf("Root is not finite!\n");
-
-        return ROOTS_AMOUNT_ERR_CODE;
+        return ROOTS_AMOUNT_ROOT_NOT_FINITE;
     }
 
     double discriminant = (b*b) - (4*a*c);
 
     if (!isfinite(discriminant))
     {
-        printf("Invalid discriminant!\n");
-
-        return ROOTS_AMOUNT_ERR_CODE;
+        return ROOTS_AMOUNT_DISCRIMINANT_NOT_FINITE;
     }
 
     else if (IsZero(discriminant))
@@ -100,9 +100,7 @@ int SolveSquare(const struct Coefficients *coeffs, struct Result *result)
             return ROOTS_AMOUNT_ONE_ROOT;
         }
 
-        printf("Root is not finite!\n");
-
-        return ROOTS_AMOUNT_ERR_CODE;
+        return ROOTS_AMOUNT_ROOT_NOT_FINITE;
     }
 
     else if (discriminant < 0)
@@ -121,9 +119,7 @@ int SolveSquare(const struct Coefficients *coeffs, struct Result *result)
             return ROOTS_AMOUNT_TWO_ROOTS;
         }
 
-        printf("Root is not finite!\n");
-
-        return ROOTS_AMOUNT_ERR_CODE;
+        return ROOTS_AMOUNT_ROOT_NOT_FINITE;
     }
 
     return ROOTS_AMOUNT_ERR_CODE;

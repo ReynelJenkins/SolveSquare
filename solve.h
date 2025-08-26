@@ -19,7 +19,7 @@ struct Params {
 struct Test
 {
     struct Coefficients coeffs;
-    struct Result result;
+    struct Result result; // expected;
 };
 
 enum RootsAmount
@@ -28,7 +28,9 @@ enum RootsAmount
     ROOTS_AMOUNT_INF_ROOTS = -1,
     ROOTS_AMOUNT_NO_ROOTS = 0,
     ROOTS_AMOUNT_ONE_ROOT = 1,
-    ROOTS_AMOUNT_TWO_ROOTS = 2
+    ROOTS_AMOUNT_TWO_ROOTS = 2,
+    ROOTS_AMOUNT_ROOT_NOT_FINITE = 3,
+    ROOTS_AMOUNT_DISCRIMINANT_NOT_FINITE = 4
 };
 
 int SolveSquare(const struct Coefficients *coeffs, struct Result *result);

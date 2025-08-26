@@ -35,7 +35,8 @@ void TestSolveSquare()
                     case ROOTS_AMOUNT_ONE_ROOT:
                         if (!IsZero(a*x1*x1 + b*x1 + c))
                         {
-                            printf(RED "FAILED: a = %lg b = %lg c = %lg x = %lg\n" RESET, a, b, c, x1);
+                            PrintTestError(&test_equation, 0, 0);
+
                             success = false;
                         }
                         break;
@@ -43,7 +44,8 @@ void TestSolveSquare()
                     case ROOTS_AMOUNT_TWO_ROOTS:
                         if (!IsZero(a*x1*x1 + b*x1 + c) || !IsZero(a*x2*x2 + b*x2 + c))
                         {
-                            printf(RED "FAILED: a = %lg b = %lg c = %lg x1 = %lg x2 = %lg\n" RESET, a, b, c, x1, x2);
+                            PrintTestError(&test_equation, 0, 0);
+
                             success = false;
                         }
                         break;
@@ -64,40 +66,46 @@ int ReadTestsFromFile()
     FILE* file = fopen("file.txt", "r");
     if (file == NULL)
     {
-        printf(RED "Error opening file.txt with tests..." RESET);
-        return 0;
+        printf(RED "Error opening file.txt! Extern tests will be passed..." RESET);
+
+        return 1;
     }
 
     char buf[BUF_SIZE] = {};
 
     struct Params test = {};
-    double x1_ref = 0, x2_ref = 0;
+    struct Result result_of_program
+
     int  n_roots = 0;
 
     while (fgets(buf, sizeof(buf), file) != NULL)
     {
         test = {};
+        result_of_program = {};
 
-        sscanf(buf, "%lg %lg %lg %lg %lg", &test.coeffs.a, &test.coeffs.b, &test.coeffs.c, &x1_ref, &x2_ref);
+        sscanf(buf, "%lg %lg %lg %lg %lg", &test.coeffs.a, &test.coeffs.b, &test.coeffs.c, &test.result.x1, &test.result.x2);
 
-        n_roots = SolveSquare(&test.coeffs, &test.result);
+        // Test test;
+        // SerializeTest(const Test *test, FILE* file) // fprintf(a b c x1 x2)
+        // DeserializeTest(Test *test)        fscanf()
+
+        n_roots = SolveSquare(&test.coeffs, &result_of_program);
 
         switch (n_roots)
         {
             case ROOTS_AMOUNT_TWO_ROOTS:
-                if (!((Compare(test.result.x1, x1_ref) && Compare(test.result.x2, x2_ref)) || (Compare(test.result.x1, x2_ref) && Compare(test.result.x2, x1_ref))))
+                if (!((Compare(test.result.x1, result_of_program.x1) && Compare(test.result.x2, result_of_program.x2)) || (Compare(test.result.x1, result_of_program.x2) && Compare(test.result.x2, result_of_program.x1))))
                 {
-                    // Copy paste PrintTestsError(Test *test, Solution *solution)
-                    printf(RED "FAILED: a = %lg b = %lg c = %lg x1_ref = %lg x2_ref = %lg x1 = %lg x2 = %lg\n" RESET, test.coeffs.a, test.coeffs.b, test.coeffs.c, x1_ref, x2_ref, test.result.x1, test.result.x2);
+                    PrintTestError(&test, result_of_program.x1, result_of_program.x2);
 
                     return 0;
                 }
                 break;
 
             case ROOTS_AMOUNT_ONE_ROOT:
-                if (!(Compare(test.result.x1, x1_ref) || Compare(test.result.x1, x2_ref)))
+                if (!(Compare(test.result.x1, result_of_program.x1) || Compare(test.result.x1, result_of_program.x2)))
                 {
-                    printf(RED "FAILED: a = %lg b = %lg c = %lg x1_ref = %lg x2_ref = %lg x1 = %lg x2 = %lg\n" RESET, test.coeffs.a, test.coeffs.b, test.coeffs.c, x1_ref, x2_ref, test.result.x1, test.result.x2);
+                    PrintTestError(&test, result_of_program.x1, result_of_program.x2);
 
                     return 0;
                 }

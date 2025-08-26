@@ -155,18 +155,31 @@ int PrintResult(struct Result* my_result)
         case ROOTS_AMOUNT_NO_ROOTS:
             printf("No roots\n");
             break;
+
         case ROOTS_AMOUNT_ONE_ROOT:
             printf("Single root x = %lg\n", x1);
             break;
+
         case ROOTS_AMOUNT_TWO_ROOTS:
             printf("Two roots: x1 = %lg, x2 = %lg\n", x1, x2);
             break;
+
         case ROOTS_AMOUNT_INF_ROOTS:
             printf("Any number is a root\n");
             break;
+
         case ROOTS_AMOUNT_ERR_CODE:
             printf("Error (Finding roots)\n");
             break;
+
+        case ROOTS_AMOUNT_ROOT_NOT_FINITE:
+            printf("Root is not finite!\n");
+            break;
+
+        case ROOTS_AMOUNT_DISCRIMINANT_NOT_FINITE:
+            printf("Invalid discriminant!\n");
+            break;
+
         default:
             printf("Error\n");
             break;
@@ -261,5 +274,19 @@ void PrintCat()
     printf("\n");
     printf("  /\\_/\\  \n");
     printf(" ( o.o ) \n");
-    printf("  > ^ <  \n\n");
+    printf("  > ^ <  \n");
+    printf("\n");
+}
+
+void PrintTestError(const struct Params *failed_test_params, double x1_ref, double x2_ref)
+{
+    printf(RED "FAILED:");
+    printf("a = %lg ", failed_test_params->coeffs.a);
+    printf("b = %lg ", failed_test_params->coeffs.b);
+    printf("c = %lg ", failed_test_params->coeffs.c);
+    printf("x1_ref = %lg ", x1_ref);
+    printf("x2_ref = %lg ", x2_ref);
+    printf("x1 = %lg ", failed_test_params->result.x1);
+    printf("x2 = %lg ", failed_test_params->result.x2);
+    printf("\n" RESET);
 }
