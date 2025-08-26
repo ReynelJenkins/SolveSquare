@@ -7,15 +7,19 @@
 
 int main()
 {
-    Params equation = {};
+    printf(YELLOW "\nMeow\n\n" RESET);
+
+    struct Params equation = {};
 
     UserInput(&(equation.coeffs));
 
-    equation.result.n_roots = SolveSquare(&equation);
+    equation.result.n_roots = SolveSquare(&equation.coeffs, &equation.result);
 
-    PrintResult(&(equation.result)); // TODO: почитать про этапы компил€ции
+    PrintResult(&(equation.result));
 
-    TestSolveSquare();               // TODO: Makefile
-                                     // TODO: FSM, Readme, licence, doxygen
+    TestSolveSquare();
+
+    printf(MAGENTA "\n-----COMMIT GITHUB-----\n" RESET);
+
     return 0;
 }

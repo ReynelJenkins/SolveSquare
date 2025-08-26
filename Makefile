@@ -4,8 +4,8 @@ CFLAGS=-c -Wall -Wextra -Weffc++ -Wcast-align -Wcast-qual -Wconversion -Wctor-dt
 
 all: SolveSquare
 
-SolveSquare: main.o io.o floating.o unit_test.o fsp.o solve.o
-	$(CC) main.o io.o floating.o unit_test.o fsp.o solve.o -o SolveSquare
+SolveSquare: main.o io.o floating.o unit_test.o solve.o
+	$(CC) main.o io.o floating.o unit_test.o solve.o -o SolveSquare
 
 main.o: main.cpp
 	$(CC) $(CFLAGS) main.cpp
@@ -18,9 +18,6 @@ floating.o: floating.cpp
 
 unit_test.o: unit_test.cpp
 	$(CC) $(CFLAGS) unit_test.cpp
-
-fsp.o: fsp.cpp
-	$(CC) $(CFLAGS) fsp.cpp
 
 solve.o: solve.cpp
 	$(CC) $(CFLAGS) solve.cpp

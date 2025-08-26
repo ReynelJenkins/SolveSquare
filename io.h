@@ -23,7 +23,7 @@ int PrintEquation(const struct Coefficients* my_coeff);
 int PrintResult(struct Result* my_result);
 int UserInput(struct Coefficients* my_coeff);
 double InputNumber(const char* prompt);
-void cat();
+void PrintCat();
 
 const int BUF_SIZE = 100;
 

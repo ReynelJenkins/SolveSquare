@@ -16,6 +16,12 @@ struct Params {
     struct Result result;
 };
 
+struct Test
+{
+    struct Coefficients coeffs;
+    struct Result result;
+};
+
 enum RootsAmount
 {
     ROOTS_AMOUNT_ERR_CODE = -2,
@@ -25,6 +31,6 @@ enum RootsAmount
     ROOTS_AMOUNT_TWO_ROOTS = 2
 };
 
-int SolveSquare(struct Params *equation_params);
+int SolveSquare(const struct Coefficients *coeffs, struct Result *result);
 
 #endif //SOLVE_H

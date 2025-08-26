@@ -25,8 +25,10 @@ int UserInput(struct Coefficients* my_coeff)
     return 0;
 }
 
-int PrintEquation(const struct Coefficients* my_coeff)
+int PrintEquation(const struct Coefficients *my_coeff)
 {
+    assert(my_coeff);
+
     int first_print = 0;
 
     printf("\n");
@@ -34,11 +36,20 @@ int PrintEquation(const struct Coefficients* my_coeff)
     if (!IsZero(my_coeff->a))
     {
         if (Compare(my_coeff->a, 1))
+        {
             printf("X^2");
+        }
+
         else if (Compare(my_coeff->a, -1))
+        {
             printf("-X^2");
+        }
+
         else
+        {
             printf("%lgX^2", my_coeff->a);
+        }
+
         first_print = 1;
     }
 
@@ -47,30 +58,54 @@ int PrintEquation(const struct Coefficients* my_coeff)
         if (first_print == 0)
         {
             first_print = 1;
+
             if (Compare(my_coeff->b, 1))
+            {
                 printf("X");
+            }
+
             else if (Compare(my_coeff->b, 1))
+            {
                 printf("-X");
+            }
+
             else
             {
                 if (my_coeff->b > 0)
+                {
                     printf("%lgX", my_coeff->b);
+                }
+
                 else
+                {
                     printf("-%lgX", fabs(my_coeff->b));
+                }
             }
         }
+
         else
         {
             if (Compare(my_coeff->b, 1))
+            {
                 printf(" + X");
+            }
+
             else if (Compare(my_coeff->b, -1))
+            {
                 printf(" - X");
+            }
+
             else
             {
                 if (my_coeff->b > 0)
+                {
                     printf(" + %lgX", my_coeff->b);
+                }
+
                 else
+                {
                     printf(" - %lgX", fabs(my_coeff->b));
+                }
             }
         }
     }
@@ -82,16 +117,25 @@ int PrintEquation(const struct Coefficients* my_coeff)
             first_print = 1;
             printf("%lg", my_coeff->c);
         }
+
         else
         {
             if (my_coeff->c > 0)
+            {
                 printf(" + %lg", my_coeff->c);
+            }
+
             else
+            {
                 printf(" - %lg", fabs(my_coeff->c));
+            }
         }
     }
+
     if  (IsZero(my_coeff->c) && first_print == 0)
+    {
         printf("0");
+    }
 
     printf(" = 0\n\n");
 
@@ -135,8 +179,8 @@ int PrintResult(struct Result* my_result)
 
 double InputNumber(const char *prompt)
 {
-    char buf[BUF_SIZE]; // K&R
-    char *end_ptr;
+    char buf[BUF_SIZE] = {0}; // K&R
+    char *end_ptr = nullptr;
     double value = 0;
 
     do
@@ -169,7 +213,7 @@ double InputNumber(const char *prompt)
 
         if (strcmp(buf, "meow") == 0)
         {
-            cat();
+            PrintCat();
             continue;
         }
 
@@ -212,10 +256,10 @@ double InputNumber(const char *prompt)
     return value;
 }
 
-void cat()
+void PrintCat()
 {
     printf("\n");
     printf("  /\\_/\\  \n");
     printf(" ( o.o ) \n");
-    printf("  > ^ <  \n");
+    printf("  > ^ <  \n\n");
 }
