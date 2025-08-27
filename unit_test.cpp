@@ -74,7 +74,7 @@ int ReadTestsFromFile()
     char buf[BUF_SIZE] = {};
 
     struct Params test = {};
-    struct Result result_of_program
+    struct Result result_of_program = {};
 
     int  n_roots = 0;
 
@@ -84,8 +84,6 @@ int ReadTestsFromFile()
         result_of_program = {};
 
         sscanf(buf, "%lg %lg %lg %lg %lg", &test.coeffs.a, &test.coeffs.b, &test.coeffs.c, &test.result.x1, &test.result.x2);
-
-        // Test test;
         // SerializeTest(const Test *test, FILE* file) // fprintf(a b c x1 x2)
         // DeserializeTest(Test *test)        fscanf()
 

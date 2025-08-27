@@ -5,13 +5,20 @@
 #include "floating.h"
 #include "solve.h"
 
+#define MY_ASSERT(condition) \
+    if (!(condition)) { \
+        fprintf(stderr, "Assertion failed: %s, file %s, line %d\n", \
+                #condition, __FILE__, __LINE__); \
+        abort(); \
+    }
+
+
 int SolveSquare(const struct Coefficients *coeffs, struct Result *result)
 {
 
 // #define NDEBUG
 // ASSERT()
 // Test Driven Development
-
 // K & R
 
     assert(coeffs);

@@ -19,7 +19,7 @@ struct Params {
 struct Test
 {
     struct Coefficients coeffs;
-    struct Result result; // expected;
+    struct Result result;
 };
 
 enum RootsAmount
