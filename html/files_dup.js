@@ -1,5 +1,6 @@
 var files_dup =
 [
+    [ "flag_parse.h", "flag__parse_8h.html", "flag__parse_8h" ],
     [ "floating.cpp", "floating_8cpp.html", "floating_8cpp" ],
     [ "floating.h", "floating_8h.html", "floating_8h" ],
     [ "io.cpp", "io_8cpp.html", "io_8cpp" ],

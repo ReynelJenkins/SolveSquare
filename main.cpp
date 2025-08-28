@@ -12,15 +12,15 @@
 #include "io.h"
 #include "solve.h"
 #include "unit_test.h"
+#include "flag_parse.h"
 
 /*!
 Основная функция программы
 */
 int main(int argc, char *argv[])
 {
-    if (argc != 1 && (strcmp(argv[1], "-t") == 0 || strcmp(argv[1], "--test") == 0))
+    if (FlagParse(argc, argv))
     {
-        TestSolveSquare();
         return 0;
     }
 
