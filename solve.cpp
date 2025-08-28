@@ -42,7 +42,7 @@ int SolveSquare(const struct Coefficients *coeffs, struct Result *result)
 
     if (IsZero(a))
     {
-        return SolveLinearEquation(b, c, result);
+        return SolveLinearEquation(coeffs, result);
     }
 
     if (IsZero(b) || IsZero(c))
@@ -97,8 +97,11 @@ int SolveSquare(const struct Coefficients *coeffs, struct Result *result)
 \param[out] result указатель на структуру типа Result
 \return  оличество корней
 */
-int SolveLinearEquation(double b, double c, struct Result *result)
+int SolveLinearEquation(const struct Coefficients *coeffs, struct Result *result)
 {
+    double b = coeffs->b;
+    double c = coeffs->c;
+
     if (IsZero(b))
     {
         return (IsZero(c)) ? ROOTS_AMOUNT_INF_ROOTS : ROOTS_AMOUNT_NO_ROOTS;

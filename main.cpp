@@ -7,6 +7,7 @@
 
 //#include <TXLib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "io.h"
 #include "solve.h"
@@ -15,8 +16,14 @@
 /*!
 Основная функция программы
 */
-int main()
+int main(int argc, char *argv[])
 {
+    if (argc != 1 && (strcmp(argv[1], "-t") == 0 || strcmp(argv[1], "--test") == 0))
+    {
+        TestSolveSquare();
+        return 0;
+    }
+
     printf(YELLOW "\nMeow\n\n" RESET);
 
     struct Result result = {};

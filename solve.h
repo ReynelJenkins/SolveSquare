@@ -33,7 +33,7 @@ enum RootsAmount
 };
 
 int SolveSquare(const struct Coefficients *coeffs, struct Result *result);
-int SolveLinearEquation(double b, double c, struct Result *result);
+int SolveLinearEquation(const struct Coefficients *coeffs, struct Result *result);
 int SolveSpecialCase(const struct Coefficients *coeffs, struct Result *result);
 
 #endif //SOLVE_H
