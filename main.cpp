@@ -1,21 +1,33 @@
-#include <TXLib.h>
+/*!
+\file
+\brief Файл main.cpp
+
+Данный файл содержит в себе основную функцию программы.
+*/
+
+//#include <TXLib.h>
 #include <stdio.h>
 
 #include "io.h"
 #include "solve.h"
 #include "unit_test.h"
 
+/*!
+Основная функция программы
+*/
 int main()
 {
     printf(YELLOW "\nMeow\n\n" RESET);
 
-    struct Params equation = {};
+    struct Result result = {};
 
-    UserInput(&(equation.coeffs));
+    struct Coefficients coeffs = {};
 
-    equation.result.n_roots = SolveSquare(&equation.coeffs, &equation.result);
+    UserInput(&coeffs);
 
-    PrintResult(&(equation.result));
+    result.n_roots = SolveSquare(&coeffs, &result);
+
+    PrintResult(&result);
 
     TestSolveSquare();
 

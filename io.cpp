@@ -1,3 +1,10 @@
+/*!
+\file
+\brief Файл io.cpp
+
+Данный файл содержит в себе функции, используемые в программе.
+*/
+
 #include <stdio.h>
 #include <assert.h>
 #include <math.h>
@@ -6,9 +13,14 @@
 
 #include "floating.h"
 #include "solve.h"
+#include "unit_test.h"
 
 #include "io.h"
 
+/*!
+Запрашивает ввод коэффицентов
+\param[in] my_coeff указатель на структуру типа Coefficients
+*/
 int UserInput(struct Coefficients* my_coeff)
 {
     assert(my_coeff);
@@ -25,6 +37,10 @@ int UserInput(struct Coefficients* my_coeff)
     return 0;
 }
 
+/*!
+Выводит уравнение
+\param[in] my_coeff указатель на структуру типа Coefficients
+*/
 int PrintEquation(const struct Coefficients *my_coeff)
 {
     assert(my_coeff);
@@ -33,103 +49,22 @@ int PrintEquation(const struct Coefficients *my_coeff)
 
     printf("\n");
 
+    // TODO:
+    // PrintA ...
     if (!IsZero(my_coeff->a))
     {
-        if (Compare(my_coeff->a, 1))
-        {
-            printf("X^2");
-        }
-
-        else if (Compare(my_coeff->a, -1))
-        {
-            printf("-X^2");
-        }
-
-        else
-        {
-            printf("%lgX^2", my_coeff->a);
-        }
-
+        PrintA(my_coeff->a);
         first_print = 1;
     }
 
     if (!IsZero(my_coeff->b))
     {
-        if (first_print == 0)
-        {
-            first_print = 1;
-
-            if (Compare(my_coeff->b, 1))
-            {
-                printf("X");
-            }
-
-            else if (Compare(my_coeff->b, 1))
-            {
-                printf("-X");
-            }
-
-            else
-            {
-                if (my_coeff->b > 0)
-                {
-                    printf("%lgX", my_coeff->b);
-                }
-
-                else
-                {
-                    printf("-%lgX", fabs(my_coeff->b));
-                }
-            }
-        }
-
-        else
-        {
-            if (Compare(my_coeff->b, 1))
-            {
-                printf(" + X");
-            }
-
-            else if (Compare(my_coeff->b, -1))
-            {
-                printf(" - X");
-            }
-
-            else
-            {
-                if (my_coeff->b > 0)
-                {
-                    printf(" + %lgX", my_coeff->b);
-                }
-
-                else
-                {
-                    printf(" - %lgX", fabs(my_coeff->b));
-                }
-            }
-        }
+        PrintB(my_coeff->b, &first_print);
     }
 
     if (!IsZero(my_coeff->c))
     {
-        if (first_print == 0)
-        {
-            first_print = 1;
-            printf("%lg", my_coeff->c);
-        }
-
-        else
-        {
-            if (my_coeff->c > 0)
-            {
-                printf(" + %lg", my_coeff->c);
-            }
-
-            else
-            {
-                printf(" - %lg", fabs(my_coeff->c));
-            }
-        }
+        PrintC(my_coeff->c, &first_print);
     }
 
     if  (IsZero(my_coeff->c) && first_print == 0)
@@ -142,6 +77,10 @@ int PrintEquation(const struct Coefficients *my_coeff)
     return 0;
 }
 
+/*!
+Выводит результат работы программы
+\param[in] my_result указатель на структуру типа Result
+*/
 int PrintResult(struct Result* my_result)
 {
 
@@ -190,6 +129,11 @@ int PrintResult(struct Result* my_result)
     return 0;
 }
 
+/*!
+Получает и проверяет значение из stdin
+\param[in] prompt указатель на строковую константу, которая выводится перед получением значения
+\return value - полученное число, в случае неудачи считывания числа - выводит соответствующую ошибку
+*/
 double InputNumber(const char *prompt)
 {
     char buf[BUF_SIZE] = {0}; // K&R
@@ -198,29 +142,11 @@ double InputNumber(const char *prompt)
 
     do
     {
-        memset(buf, 0, sizeof(buf));
-
         printf("%s", prompt);
         fflush(stdout);
-        int curr_pos = 0;
 
-        for (curr_pos = 0; curr_pos != sizeof(buf) - 1; ++curr_pos)
+        if (!FillBuf(buf, sizeof(buf)))
         {
-            int c = getchar();
-            if (c == EOF || c == '\n')
-            {
-                break;
-            }
-
-            buf[curr_pos] = (char)c;
-        }
-
-        if (curr_pos == sizeof(buf) - 1)
-        {
-            printf("Buffer Overflow!\n");
-            //fflush(stdin);
-            while(getchar() != '\n')
-                ;
             continue;
         }
 
@@ -232,53 +158,39 @@ double InputNumber(const char *prompt)
 
         value = strtod(buf, &end_ptr);
 
-        if (end_ptr == &buf[0] || *end_ptr != 0)
+        if (IsValid(value, end_ptr, &buf[0]))
         {
-            printf("Invalid Input!!! Try again...\n");
-            continue;
+            break;
         }
-
-        if (value == HUGE_VAL || value == HUGE_VALF || value == HUGE_VALL)
-        {
-            printf("Overflow! Value too large.\n");
-            continue;
-        }
-
-        if (isnan(value))
-        {
-            printf("Invalid Input! Not a number.\n");
-            continue;
-        }
-
-        if (isinf(value))
-        {
-            printf("Invalid Input! Infinity.\n");
-            continue;
-        }
-
-        if (!isfinite(value))
-        {
-            printf("Invalid Input!\n");
-            continue;
-        }
-
-        break;
 
     } while (true);
 
     return value;
 }
 
-void PrintCat()
+/*!
+Выводит котика :)
+*/
+int PrintCat()
 {
     printf("\n");
     printf("  /\\_/\\  \n");
     printf(" ( o.o ) \n");
     printf("  > ^ <  \n");
     printf("\n");
+
+    return 0;
 }
 
-void PrintTestError(const struct Params *failed_test_params, double x1_ref, double x2_ref)
+/*!
+Выводит сообщение о провале теста
+\param[in] failed_test_params указатель на структуру, содержащую коэффиценты и верные корни
+\param[in] x1_ref Результат, посчитаный программой
+\param[in] x2_ref Результат, посчитаный программой
+*/
+int PrintTestError(const struct Test *failed_test_params,
+                   double             x1_ref,
+                   double             x2_ref)
 {
     printf(RED "FAILED:");
     printf("a = %lg ", failed_test_params->coeffs.a);
@@ -289,4 +201,192 @@ void PrintTestError(const struct Params *failed_test_params, double x1_ref, doub
     printf("x1 = %lg ", failed_test_params->result.x1);
     printf("x2 = %lg ", failed_test_params->result.x2);
     printf("\n" RESET);
+
+    return 0;
+}
+
+/*!
+Проверяет значение value
+\return true, если число корректное, иначе false
+*/
+bool IsValid(double value, char *end_ptr, char *first_ptr)
+{
+        if (end_ptr == first_ptr || *end_ptr != 0)
+        {
+            printf("Invalid Input!!! Try again...\n");
+            return false;
+        }
+
+        if (value == HUGE_VAL || value == HUGE_VALF || value == HUGE_VALL)
+        {
+            printf("Overflow! Value too large.\n");
+            return false;
+        }
+
+        if (isnan(value))
+        {
+            printf("Invalid Input! Not a number.\n");
+            return false;
+        }
+
+        if (isinf(value))
+        {
+            printf("Invalid Input! Infinity.\n");
+            return false;
+        }
+
+        if (!isfinite(value))
+        {
+            printf("Invalid Input!\n");
+            return false;
+        }
+
+        return true;
+}
+
+/*!
+Заполняет буфер из stdin
+\param[in] buf - массив типа char
+\param[in] buf_size - размер массива типа size_t
+\return 0, если буфер был переполнен, иначе 1
+*/
+int FillBuf(char buf[], size_t buf_size)
+{
+    unsigned int curr_pos = 0;
+
+    memset(buf, 0, buf_size);
+
+    for (curr_pos = 0; curr_pos != buf_size - 1; ++curr_pos)
+    {
+        int c = getchar();
+        if (c == EOF || c == '\n')
+        {
+            break;
+        }
+
+        buf[curr_pos] = (char)c;
+    }
+
+    if (curr_pos == buf_size - 1)
+    {
+        printf("Buffer Overflow!\n");
+        //fflush(stdin);
+        while(getchar() != '\n');
+
+        return 0;
+    }
+
+    return 1;
+}
+
+/*!
+Выводит перый член уравнения
+*/
+int PrintA(double a)
+{
+    if (Compare(a, 1))
+    {
+        printf("X%c", SQUARE_SYMBOL);
+    }
+
+    else if (Compare(a, -1))
+    {
+        printf("-X%c", SQUARE_SYMBOL);
+    }
+
+    else
+    {
+        printf("%lgX%c", a, SQUARE_SYMBOL);
+    }
+
+    return 0;
+}
+
+/*!
+Выводит второй член уравнения
+*/
+int PrintB(double b, int *first_print)
+{
+    if (*first_print == 0)
+    {
+        *first_print = 1;
+
+        if (Compare(b, 1))
+        {
+            printf("X");
+        }
+
+        else if (Compare(b, 1))
+        {
+            printf("-X");
+        }
+
+        else
+        {
+            if (b > 0)
+            {
+                printf("%lgX", b);
+            }
+
+            else
+            {
+                printf("-%lgX", fabs(b));
+            }
+        }
+    }
+
+    else
+    {
+        if (Compare(b, 1))
+        {
+            printf(" + X");
+        }
+
+        else if (Compare(b, -1))
+        {
+            printf(" - X");
+        }
+
+        else
+        {
+            if (b > 0)
+            {
+                printf(" + %lgX", b);
+            }
+
+            else
+            {
+                printf(" - %lgX", fabs(b));
+            }
+        }
+    }
+
+    return 0;
+}
+
+/*!
+Выводит третий член уравнения
+*/
+int PrintC(double c, int *first_print)
+{
+    if (*first_print == 0)
+    {
+        *first_print = 1;
+        printf("%lg", c);
+    }
+
+    else
+    {
+        if (c > 0)
+        {
+            printf(" + %lg", c);
+        }
+
+        else
+        {
+            printf(" - %lg", fabs(c));
+        }
+    }
+
+    return 0;
 }

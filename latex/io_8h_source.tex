@@ -1,35 +1,45 @@
 \doxysection{io.\+h}
-\hypertarget{io_8h_source}{}\label{io_8h_source}
+\hypertarget{io_8h_source}{}\label{io_8h_source}\mbox{\hyperlink{io_8h}{См. документацию.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ IO\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ IO\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ RED\ \ \ \ \ "{}\(\backslash\)033[1;31m"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ GREEN\ \ \ "{}\(\backslash\)033[1;32m"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ YELLOW\ \ "{}\(\backslash\)033[1;33m"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ BLUE\ \ \ \ "{}\(\backslash\)033[1;34m"{}}}
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ MAGENTA\ "{}\(\backslash\)033[1;35m"{}}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ CYAN\ \ \ \ "{}\(\backslash\)033[1;36m"{}}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ WHITE\ \ \ "{}\(\backslash\)033[1;37m"{}}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ RESET\ \ \ "{}\(\backslash\)033[0m"{}}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ BG\_RED\ \ \ \ \ "{}\(\backslash\)033[41m"{}}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ BG\_GREEN\ \ \ "{}\(\backslash\)033[42m"{}}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ BG\_YELLOW\ \ "{}\(\backslash\)033[43m"{}}}
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ BG\_BLUE\ \ \ \ "{}\(\backslash\)033[44m"{}}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ BG\_MAGENTA\ "{}\(\backslash\)033[45m"{}}}
-\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ BG\_CYAN\ \ \ \ "{}\(\backslash\)033[46m"{}}}
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ BG\_WHITE\ \ \ "{}\(\backslash\)033[47m"{}}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ BG\_RESET\ \ \ "{}\(\backslash\)033[49m"{}}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \textcolor{keywordtype}{int}\ PrintEquation(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_coefficients}{Coefficients}}*\ my\_coeff);}
-\DoxyCodeLine{00023\ \textcolor{keywordtype}{int}\ PrintResult(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_result}{Result}}*\ my\_result);}
-\DoxyCodeLine{00024\ \textcolor{keywordtype}{int}\ UserInput(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_coefficients}{Coefficients}}*\ my\_coeff);}
-\DoxyCodeLine{00025\ \textcolor{keywordtype}{double}\ InputNumber(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ prompt);}
-\DoxyCodeLine{00026\ \textcolor{keywordtype}{void}\ cat();}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ BUF\_SIZE\ =\ 100;}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//IO\_H}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ IO\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ IO\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ RED\ \ \ \ \ "{}\(\backslash\)033[1;31m"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ GREEN\ \ \ "{}\(\backslash\)033[1;32m"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ YELLOW\ \ "{}\(\backslash\)033[1;33m"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ BLUE\ \ \ \ "{}\(\backslash\)033[1;34m"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ MAGENTA\ "{}\(\backslash\)033[1;35m"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ CYAN\ \ \ \ "{}\(\backslash\)033[1;36m"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ WHITE\ \ \ "{}\(\backslash\)033[1;37m"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ RESET\ \ \ "{}\(\backslash\)033[0m"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ BG\_RED\ \ \ \ \ "{}\(\backslash\)033[41m"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ BG\_GREEN\ \ \ "{}\(\backslash\)033[42m"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ BG\_YELLOW\ \ "{}\(\backslash\)033[43m"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ BG\_BLUE\ \ \ \ "{}\(\backslash\)033[44m"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ BG\_MAGENTA\ "{}\(\backslash\)033[45m"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ BG\_CYAN\ \ \ \ "{}\(\backslash\)033[46m"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ BG\_WHITE\ \ \ "{}\(\backslash\)033[47m"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ BG\_RESET\ \ \ "{}\(\backslash\)033[49m"{}}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{io_8h_a95738753c89dd9c35af01204737df60d}{PrintEquation}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_coefficients}{Coefficients}}*\ my\_coeff);}
+\DoxyCodeLine{00030\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{io_8h_a5d6e4e028bc67c103f41a979c2262ce6}{PrintResult}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_result}{Result}}*\ my\_result);}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{io_8h_aba504ec87faa7ea51699dcd654a79b53}{UserInput}}(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_coefficients}{Coefficients}}*\ my\_coeff);}
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{io_8h_a626c544eabbb13c54196a63d7a0a636e}{InputNumber}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ prompt);}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{io_8h_adf43867c24e06ba188378a08daf4d107}{PrintCat}}();}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{io_8h_ab6fce0591872166f8c6a88a26d3491e1}{FillBuf}}(\textcolor{keywordtype}{char}\ buf[],\ \textcolor{keywordtype}{size\_t}\ buf\_size);}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{io_8h_ae9c8bebff63f204089c93e7277d790c9}{PrintA}}(\textcolor{keywordtype}{double}\ a);}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{io_8h_a7477db125c8b748662c95898ad5c8e1d}{PrintB}}(\textcolor{keywordtype}{double}\ b,\ \textcolor{keywordtype}{int}\ *first\_print);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{io_8h_aad98b927bf9a9920c6bf00de93159a39}{PrintC}}(\textcolor{keywordtype}{double}\ c,\ \textcolor{keywordtype}{int}\ *first\_print);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{io_8h_a4a9c01cdc0f92c2971ff992e838714a5}{PrintTestError}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_test}{Test}}\ *failed\_test\_params,\ \textcolor{keywordtype}{double}\ x1\_ref,\ \textcolor{keywordtype}{double}\ x2\_ref);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{io_8h_aaf0e3d45bdd7931ef0a2d686ec56dc7c}{IsValid}}(\textcolor{keywordtype}{double}\ value,\ \textcolor{keywordtype}{char}\ *end\_ptr,\ \textcolor{keywordtype}{char}\ *first\_ptr);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ BUF\_SIZE\ =\ 100;}
+\DoxyCodeLine{00042\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ SQUARE\_SYMBOL\ =\ 253;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//IO\_H}}
 
 \end{DoxyCode}

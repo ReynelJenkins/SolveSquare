@@ -1,0 +1,162 @@
+\doxysection{Файл io.\+cpp}
+\hypertarget{io_8cpp}{}\label{io_8cpp}\index{io.cpp@{io.cpp}}
+
+
+Файл \doxylink{io_8cpp}{io.\+cpp}.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include "{}floating.\+h"{}}\newline
+{\ttfamily \#include "{}solve.\+h"{}}\newline
+{\ttfamily \#include "{}unit\+\_\+test.\+h"{}}\newline
+{\ttfamily \#include "{}io.\+h"{}}\newline
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{io_8cpp_aba504ec87faa7ea51699dcd654a79b53}{User\+Input}} (struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}my\+\_\+coeff)
+\item 
+int \mbox{\hyperlink{io_8cpp_a95738753c89dd9c35af01204737df60d}{Print\+Equation}} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}my\+\_\+coeff)
+\item 
+int \mbox{\hyperlink{io_8cpp_a5d6e4e028bc67c103f41a979c2262ce6}{Print\+Result}} (struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}my\+\_\+result)
+\item 
+double \mbox{\hyperlink{io_8cpp_a626c544eabbb13c54196a63d7a0a636e}{Input\+Number}} (const char \texorpdfstring{$\ast$}{*}prompt)
+\item 
+int \mbox{\hyperlink{io_8cpp_adf43867c24e06ba188378a08daf4d107}{Print\+Cat}} ()
+\item 
+int \mbox{\hyperlink{io_8cpp_a4a9c01cdc0f92c2971ff992e838714a5}{Print\+Test\+Error}} (const struct \mbox{\hyperlink{struct_test}{Test}} \texorpdfstring{$\ast$}{*}failed\+\_\+test\+\_\+params, double x1\+\_\+ref, double x2\+\_\+ref)
+\item 
+bool \mbox{\hyperlink{io_8cpp_aaf0e3d45bdd7931ef0a2d686ec56dc7c}{Is\+Valid}} (double value, char \texorpdfstring{$\ast$}{*}end\+\_\+ptr, char \texorpdfstring{$\ast$}{*}first\+\_\+ptr)
+\item 
+int \mbox{\hyperlink{io_8cpp_ab6fce0591872166f8c6a88a26d3491e1}{Fill\+Buf}} (char buf\mbox{[}$\,$\mbox{]}, size\+\_\+t buf\+\_\+size)
+\item 
+int \mbox{\hyperlink{io_8cpp_ae9c8bebff63f204089c93e7277d790c9}{PrintA}} (double a)
+\item 
+int \mbox{\hyperlink{io_8cpp_a7477db125c8b748662c95898ad5c8e1d}{PrintB}} (double b, int \texorpdfstring{$\ast$}{*}first\+\_\+print)
+\item 
+int \mbox{\hyperlink{io_8cpp_aad98b927bf9a9920c6bf00de93159a39}{PrintC}} (double c, int \texorpdfstring{$\ast$}{*}first\+\_\+print)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Файл \doxylink{io_8cpp}{io.\+cpp}. 
+
+Данный файл содержит в себе функции, используемые в программе. 
+
+\label{doc-func-members}
+\Hypertarget{io_8cpp_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{io_8cpp_ab6fce0591872166f8c6a88a26d3491e1}\index{io.cpp@{io.cpp}!FillBuf@{FillBuf}}
+\index{FillBuf@{FillBuf}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{FillBuf()}{FillBuf()}}
+{\footnotesize\ttfamily \label{io_8cpp_ab6fce0591872166f8c6a88a26d3491e1} 
+int Fill\+Buf (\begin{DoxyParamCaption}\item[{char}]{buf}{\mbox{[}$\,$\mbox{]}, }\item[{size\+\_\+t}]{buf\+\_\+size}{}\end{DoxyParamCaption})}
+
+Заполняет буфер из stdin 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em buf} & -\/ массив типа char \\
+\hline
+\mbox{\texttt{in}}  & {\em buf\+\_\+size} & -\/ размер массива типа size\+\_\+t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если буфер был переполнен, иначе 1 
+\end{DoxyReturn}
+\Hypertarget{io_8cpp_a626c544eabbb13c54196a63d7a0a636e}\index{io.cpp@{io.cpp}!InputNumber@{InputNumber}}
+\index{InputNumber@{InputNumber}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{InputNumber()}{InputNumber()}}
+{\footnotesize\ttfamily \label{io_8cpp_a626c544eabbb13c54196a63d7a0a636e} 
+double Input\+Number (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prompt}{}\end{DoxyParamCaption})}
+
+Получает и проверяет значение из stdin 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em prompt} & указатель на строковую константу, которая выводится перед получением значения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+value -\/ полученное число, в случае неудачи считывания числа -\/ выводит соответствующую ошибку 
+\end{DoxyReturn}
+\Hypertarget{io_8cpp_aaf0e3d45bdd7931ef0a2d686ec56dc7c}\index{io.cpp@{io.cpp}!IsValid@{IsValid}}
+\index{IsValid@{IsValid}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{IsValid()}{IsValid()}}
+{\footnotesize\ttfamily \label{io_8cpp_aaf0e3d45bdd7931ef0a2d686ec56dc7c} 
+bool Is\+Valid (\begin{DoxyParamCaption}\item[{double}]{value}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{end\+\_\+ptr}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{first\+\_\+ptr}{}\end{DoxyParamCaption})}
+
+Проверяет значение value \begin{DoxyReturn}{Возвращает}
+true, если число корректное, иначе false 
+\end{DoxyReturn}
+\Hypertarget{io_8cpp_ae9c8bebff63f204089c93e7277d790c9}\index{io.cpp@{io.cpp}!PrintA@{PrintA}}
+\index{PrintA@{PrintA}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{PrintA()}{PrintA()}}
+{\footnotesize\ttfamily \label{io_8cpp_ae9c8bebff63f204089c93e7277d790c9} 
+int PrintA (\begin{DoxyParamCaption}\item[{double}]{a}{}\end{DoxyParamCaption})}
+
+Выводит перый член уравнения \Hypertarget{io_8cpp_a7477db125c8b748662c95898ad5c8e1d}\index{io.cpp@{io.cpp}!PrintB@{PrintB}}
+\index{PrintB@{PrintB}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{PrintB()}{PrintB()}}
+{\footnotesize\ttfamily \label{io_8cpp_a7477db125c8b748662c95898ad5c8e1d} 
+int PrintB (\begin{DoxyParamCaption}\item[{double}]{b}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{first\+\_\+print}{}\end{DoxyParamCaption})}
+
+Выводит второй член уравнения \Hypertarget{io_8cpp_aad98b927bf9a9920c6bf00de93159a39}\index{io.cpp@{io.cpp}!PrintC@{PrintC}}
+\index{PrintC@{PrintC}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{PrintC()}{PrintC()}}
+{\footnotesize\ttfamily \label{io_8cpp_aad98b927bf9a9920c6bf00de93159a39} 
+int PrintC (\begin{DoxyParamCaption}\item[{double}]{c}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{first\+\_\+print}{}\end{DoxyParamCaption})}
+
+Выводит третий член уравнения \Hypertarget{io_8cpp_adf43867c24e06ba188378a08daf4d107}\index{io.cpp@{io.cpp}!PrintCat@{PrintCat}}
+\index{PrintCat@{PrintCat}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{PrintCat()}{PrintCat()}}
+{\footnotesize\ttfamily \label{io_8cpp_adf43867c24e06ba188378a08daf4d107} 
+int Print\+Cat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Выводит котика \+:) \Hypertarget{io_8cpp_a95738753c89dd9c35af01204737df60d}\index{io.cpp@{io.cpp}!PrintEquation@{PrintEquation}}
+\index{PrintEquation@{PrintEquation}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{PrintEquation()}{PrintEquation()}}
+{\footnotesize\ttfamily \label{io_8cpp_a95738753c89dd9c35af01204737df60d} 
+int Print\+Equation (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}}]{my\+\_\+coeff}{}\end{DoxyParamCaption})}
+
+Выводит уравнение 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em my\+\_\+coeff} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{io_8cpp_a5d6e4e028bc67c103f41a979c2262ce6}\index{io.cpp@{io.cpp}!PrintResult@{PrintResult}}
+\index{PrintResult@{PrintResult}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{PrintResult()}{PrintResult()}}
+{\footnotesize\ttfamily \label{io_8cpp_a5d6e4e028bc67c103f41a979c2262ce6} 
+int Print\+Result (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}}]{my\+\_\+result}{}\end{DoxyParamCaption})}
+
+Выводит результат работы программы 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em my\+\_\+result} & указатель на структуру типа \doxylink{struct_result}{Result} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{io_8cpp_a4a9c01cdc0f92c2971ff992e838714a5}\index{io.cpp@{io.cpp}!PrintTestError@{PrintTestError}}
+\index{PrintTestError@{PrintTestError}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{PrintTestError()}{PrintTestError()}}
+{\footnotesize\ttfamily \label{io_8cpp_a4a9c01cdc0f92c2971ff992e838714a5} 
+int Print\+Test\+Error (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{struct_test}{Test}} \texorpdfstring{$\ast$}{*}}]{failed\+\_\+test\+\_\+params}{, }\item[{double}]{x1\+\_\+ref}{, }\item[{double}]{x2\+\_\+ref}{}\end{DoxyParamCaption})}
+
+Выводит сообщение о провале теста 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em failed\+\_\+test\+\_\+params} & указатель на структуру, содержащую коэффиценты и верные корни \\
+\hline
+\mbox{\texttt{in}}  & {\em x1\+\_\+ref} & Результат, посчитаный программой \\
+\hline
+\mbox{\texttt{in}}  & {\em x2\+\_\+ref} & Результат, посчитаный программой \\
+\hline
+\end{DoxyParams}
+\Hypertarget{io_8cpp_aba504ec87faa7ea51699dcd654a79b53}\index{io.cpp@{io.cpp}!UserInput@{UserInput}}
+\index{UserInput@{UserInput}!io.cpp@{io.cpp}}
+\doxysubsubsection{\texorpdfstring{UserInput()}{UserInput()}}
+{\footnotesize\ttfamily \label{io_8cpp_aba504ec87faa7ea51699dcd654a79b53} 
+int User\+Input (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}}]{my\+\_\+coeff}{}\end{DoxyParamCaption})}
+
+Запрашивает ввод коэффицентов 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em my\+\_\+coeff} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
+\hline
+\end{DoxyParams}

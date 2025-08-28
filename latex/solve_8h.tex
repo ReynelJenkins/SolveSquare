@@ -1,0 +1,125 @@
+\doxysection{Файл solve.\+h}
+\hypertarget{solve_8h}{}\label{solve_8h}\index{solve.h@{solve.h}}
+
+
+Заголовочный файл \doxylink{solve_8h}{solve.\+h}.  
+
+
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_coefficients}{Coefficients}}
+\begin{DoxyCompactList}\small\item\em Структура содержащая три переменных типа double -\/ коэффиценты квадратного уравнения \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_result}{Result}}
+\begin{DoxyCompactList}\small\item\em Структура содержащая две переменных типа double -\/ решения квадратного уравнения и одну переменную типа int содержащую количество найденных корней \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36a}{Roots\+Amount}} \{ \newline
+\mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa30c97e9c57b82a69bd71bd797f176167}{ROOTS\+\_\+\+AMOUNT\+\_\+\+ERR\+\_\+\+CODE}} = -\/2
+, \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aaa68d36208116bf3478441b390b88ae8a}{ROOTS\+\_\+\+AMOUNT\+\_\+\+INF\+\_\+\+ROOTS}} = -\/1
+, \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa43e454b4bb50f7ce25a3158134e6755d}{ROOTS\+\_\+\+AMOUNT\+\_\+\+NO\+\_\+\+ROOTS}} = 0
+, \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa2db6f5cedfe655ff081d3091318c4df8}{ROOTS\+\_\+\+AMOUNT\+\_\+\+ONE\+\_\+\+ROOT}} = 1
+, \newline
+\mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aad46ad92254baf31188c089154f214925}{ROOTS\+\_\+\+AMOUNT\+\_\+\+TWO\+\_\+\+ROOTS}} = 2
+, \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa65645e475b7039bded5dcd87f1507f8a}{ROOTS\+\_\+\+AMOUNT\+\_\+\+ROOT\+\_\+\+NOT\+\_\+\+FINITE}} = 3
+, \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa1f13827d020e55b893ce8dda42a12083}{ROOTS\+\_\+\+AMOUNT\+\_\+\+DISCRIMINANT\+\_\+\+NOT\+\_\+\+FINITE}} = 4
+ \}
+\begin{DoxyCompactList}\small\item\em Набор возможных вариантов количества корней при решении \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{solve_8h_ad601f5d0420aae423e26d3a4e63a0447}{Solve\+Square}} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}coeffs, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
+\item 
+int \mbox{\hyperlink{solve_8h_a828f5e215c8ec3130a6ee5233a0c858d}{Solve\+Linear\+Equation}} (double b, double c, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
+\item 
+\Hypertarget{solve_8h_a379127f7b19d87cbb022b68c3a99bf58}\label{solve_8h_a379127f7b19d87cbb022b68c3a99bf58} 
+int {\bfseries Solve\+Special\+Case} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}coeffs, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл \doxylink{solve_8h}{solve.\+h}. 
+
+Данный файл содержит в себе определения структур, констант и функций, используемых в программе. 
+
+\label{doc-enum-members}
+\Hypertarget{solve_8h_doc-enum-members}
+\doxysubsection{Перечисления}
+\Hypertarget{solve_8h_acece6ada5ef5bc82f9d75a03131af36a}\index{solve.h@{solve.h}!RootsAmount@{RootsAmount}}
+\index{RootsAmount@{RootsAmount}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{RootsAmount}{RootsAmount}}
+{\footnotesize\ttfamily \label{solve_8h_acece6ada5ef5bc82f9d75a03131af36a} 
+enum \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36a}{Roots\+Amount}}}
+
+
+
+Набор возможных вариантов количества корней при решении 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROOTS\_AMOUNT\_ERR\_CODE@{ROOTS\_AMOUNT\_ERR\_CODE}!solve.h@{solve.h}}\index{solve.h@{solve.h}!ROOTS\_AMOUNT\_ERR\_CODE@{ROOTS\_AMOUNT\_ERR\_CODE}}}\Hypertarget{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa30c97e9c57b82a69bd71bd797f176167}\label{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa30c97e9c57b82a69bd71bd797f176167} 
+ROOTS\+\_\+\+AMOUNT\+\_\+\+ERR\+\_\+\+CODE&Указывает, что была обнаружена ошибка \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROOTS\_AMOUNT\_INF\_ROOTS@{ROOTS\_AMOUNT\_INF\_ROOTS}!solve.h@{solve.h}}\index{solve.h@{solve.h}!ROOTS\_AMOUNT\_INF\_ROOTS@{ROOTS\_AMOUNT\_INF\_ROOTS}}}\Hypertarget{solve_8h_acece6ada5ef5bc82f9d75a03131af36aaa68d36208116bf3478441b390b88ae8a}\label{solve_8h_acece6ada5ef5bc82f9d75a03131af36aaa68d36208116bf3478441b390b88ae8a} 
+ROOTS\+\_\+\+AMOUNT\+\_\+\+INF\+\_\+\+ROOTS&Указывает, что обнаружено бесконечное количество корней \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROOTS\_AMOUNT\_NO\_ROOTS@{ROOTS\_AMOUNT\_NO\_ROOTS}!solve.h@{solve.h}}\index{solve.h@{solve.h}!ROOTS\_AMOUNT\_NO\_ROOTS@{ROOTS\_AMOUNT\_NO\_ROOTS}}}\Hypertarget{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa43e454b4bb50f7ce25a3158134e6755d}\label{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa43e454b4bb50f7ce25a3158134e6755d} 
+ROOTS\+\_\+\+AMOUNT\+\_\+\+NO\+\_\+\+ROOTS&Указывает, что корней не обнаружено \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROOTS\_AMOUNT\_ONE\_ROOT@{ROOTS\_AMOUNT\_ONE\_ROOT}!solve.h@{solve.h}}\index{solve.h@{solve.h}!ROOTS\_AMOUNT\_ONE\_ROOT@{ROOTS\_AMOUNT\_ONE\_ROOT}}}\Hypertarget{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa2db6f5cedfe655ff081d3091318c4df8}\label{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa2db6f5cedfe655ff081d3091318c4df8} 
+ROOTS\+\_\+\+AMOUNT\+\_\+\+ONE\+\_\+\+ROOT&Указывает, что обнаружен один корень \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROOTS\_AMOUNT\_TWO\_ROOTS@{ROOTS\_AMOUNT\_TWO\_ROOTS}!solve.h@{solve.h}}\index{solve.h@{solve.h}!ROOTS\_AMOUNT\_TWO\_ROOTS@{ROOTS\_AMOUNT\_TWO\_ROOTS}}}\Hypertarget{solve_8h_acece6ada5ef5bc82f9d75a03131af36aad46ad92254baf31188c089154f214925}\label{solve_8h_acece6ada5ef5bc82f9d75a03131af36aad46ad92254baf31188c089154f214925} 
+ROOTS\+\_\+\+AMOUNT\+\_\+\+TWO\+\_\+\+ROOTS&Указывает, что обнаружено два корня \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROOTS\_AMOUNT\_ROOT\_NOT\_FINITE@{ROOTS\_AMOUNT\_ROOT\_NOT\_FINITE}!solve.h@{solve.h}}\index{solve.h@{solve.h}!ROOTS\_AMOUNT\_ROOT\_NOT\_FINITE@{ROOTS\_AMOUNT\_ROOT\_NOT\_FINITE}}}\Hypertarget{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa65645e475b7039bded5dcd87f1507f8a}\label{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa65645e475b7039bded5dcd87f1507f8a} 
+ROOTS\+\_\+\+AMOUNT\+\_\+\+ROOT\+\_\+\+NOT\+\_\+\+FINITE&Указывает, что найденый корень не является конечным числом \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROOTS\_AMOUNT\_DISCRIMINANT\_NOT\_FINITE@{ROOTS\_AMOUNT\_DISCRIMINANT\_NOT\_FINITE}!solve.h@{solve.h}}\index{solve.h@{solve.h}!ROOTS\_AMOUNT\_DISCRIMINANT\_NOT\_FINITE@{ROOTS\_AMOUNT\_DISCRIMINANT\_NOT\_FINITE}}}\Hypertarget{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa1f13827d020e55b893ce8dda42a12083}\label{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa1f13827d020e55b893ce8dda42a12083} 
+ROOTS\+\_\+\+AMOUNT\+\_\+\+DISCRIMINANT\+\_\+\+NOT\+\_\+\+FINITE&Указывает, что найденый дискриминант не является конечным числом \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{doc-func-members}
+\Hypertarget{solve_8h_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{solve_8h_a828f5e215c8ec3130a6ee5233a0c858d}\index{solve.h@{solve.h}!SolveLinearEquation@{SolveLinearEquation}}
+\index{SolveLinearEquation@{SolveLinearEquation}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{SolveLinearEquation()}{SolveLinearEquation()}}
+{\footnotesize\ttfamily \label{solve_8h_a828f5e215c8ec3130a6ee5233a0c858d} 
+int Solve\+Linear\+Equation (\begin{DoxyParamCaption}\item[{double}]{b}{, }\item[{double}]{c}{, }\item[{struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}}]{result}{}\end{DoxyParamCaption})}
+
+Решает линейное уравнение 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em coeffs} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
+\hline
+\mbox{\texttt{out}}  & {\em result} & указатель на структуру типа \doxylink{struct_result}{Result} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Количество корней 
+\end{DoxyReturn}
+\Hypertarget{solve_8h_ad601f5d0420aae423e26d3a4e63a0447}\index{solve.h@{solve.h}!SolveSquare@{SolveSquare}}
+\index{SolveSquare@{SolveSquare}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{SolveSquare()}{SolveSquare()}}
+{\footnotesize\ttfamily \label{solve_8h_ad601f5d0420aae423e26d3a4e63a0447} 
+int Solve\+Square (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}}]{coeffs}{, }\item[{struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}}]{result}{}\end{DoxyParamCaption})}
+
+Решает квадратное уравнение 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em coeffs} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
+\hline
+\mbox{\texttt{out}}  & {\em result} & указатель на структуру типа \doxylink{struct_result}{Result} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Количество корней 
+\end{DoxyReturn}

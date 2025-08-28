@@ -1,0 +1,213 @@
+\doxysection{Файл io.\+h}
+\hypertarget{io_8h}{}\label{io_8h}\index{io.h@{io.h}}
+
+
+Заголовочный файл \doxylink{io_8h}{io.\+h}.  
+
+
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{io_8h_a8d23feea868a983c8c2b661e1e16972f}\label{io_8h_a8d23feea868a983c8c2b661e1e16972f} 
+\#define {\bfseries RED}~"{}\textbackslash{}033\mbox{[}1;31m"{}
+\item 
+\Hypertarget{io_8h_acfbc006ea433ad708fdee3e82996e721}\label{io_8h_acfbc006ea433ad708fdee3e82996e721} 
+\#define {\bfseries GREEN}~"{}\textbackslash{}033\mbox{[}1;32m"{}
+\item 
+\Hypertarget{io_8h_abf681265909adf3d3e8116c93c0ba179}\label{io_8h_abf681265909adf3d3e8116c93c0ba179} 
+\#define {\bfseries YELLOW}~"{}\textbackslash{}033\mbox{[}1;33m"{}
+\item 
+\Hypertarget{io_8h_a79d10e672abb49ad63eeaa8aaef57c38}\label{io_8h_a79d10e672abb49ad63eeaa8aaef57c38} 
+\#define {\bfseries BLUE}~"{}\textbackslash{}033\mbox{[}1;34m"{}
+\item 
+\Hypertarget{io_8h_a6f699060902f800f12aaae150f3a708e}\label{io_8h_a6f699060902f800f12aaae150f3a708e} 
+\#define {\bfseries MAGENTA}~"{}\textbackslash{}033\mbox{[}1;35m"{}
+\item 
+\Hypertarget{io_8h_ad243f93c16bc4c1d3e0a13b84421d760}\label{io_8h_ad243f93c16bc4c1d3e0a13b84421d760} 
+\#define {\bfseries CYAN}~"{}\textbackslash{}033\mbox{[}1;36m"{}
+\item 
+\Hypertarget{io_8h_a87b537f5fa5c109d3c05c13d6b18f382}\label{io_8h_a87b537f5fa5c109d3c05c13d6b18f382} 
+\#define {\bfseries WHITE}~"{}\textbackslash{}033\mbox{[}1;37m"{}
+\item 
+\Hypertarget{io_8h_ab702106cf3b3e96750b6845ded4e0299}\label{io_8h_ab702106cf3b3e96750b6845ded4e0299} 
+\#define {\bfseries RESET}~"{}\textbackslash{}033\mbox{[}0m"{}
+\item 
+\Hypertarget{io_8h_ac317d04c219b630f9c36b0241d9d4be7}\label{io_8h_ac317d04c219b630f9c36b0241d9d4be7} 
+\#define {\bfseries BG\+\_\+\+RED}~"{}\textbackslash{}033\mbox{[}41m"{}
+\item 
+\Hypertarget{io_8h_ac351fb4567ed6655a5b39769cc5dfd04}\label{io_8h_ac351fb4567ed6655a5b39769cc5dfd04} 
+\#define {\bfseries BG\+\_\+\+GREEN}~"{}\textbackslash{}033\mbox{[}42m"{}
+\item 
+\Hypertarget{io_8h_ab31fe3e74b1137650d30ede5c9b86218}\label{io_8h_ab31fe3e74b1137650d30ede5c9b86218} 
+\#define {\bfseries BG\+\_\+\+YELLOW}~"{}\textbackslash{}033\mbox{[}43m"{}
+\item 
+\Hypertarget{io_8h_a9afd14c731aa8c62d9471913c1b23b9f}\label{io_8h_a9afd14c731aa8c62d9471913c1b23b9f} 
+\#define {\bfseries BG\+\_\+\+BLUE}~"{}\textbackslash{}033\mbox{[}44m"{}
+\item 
+\Hypertarget{io_8h_ac08aa3f07e012f1b0edafa632d5300ba}\label{io_8h_ac08aa3f07e012f1b0edafa632d5300ba} 
+\#define {\bfseries BG\+\_\+\+MAGENTA}~"{}\textbackslash{}033\mbox{[}45m"{}
+\item 
+\Hypertarget{io_8h_a21ef237e1c4d69656729da4b34c31d8b}\label{io_8h_a21ef237e1c4d69656729da4b34c31d8b} 
+\#define {\bfseries BG\+\_\+\+CYAN}~"{}\textbackslash{}033\mbox{[}46m"{}
+\item 
+\Hypertarget{io_8h_a6beded3f171517df3902c52f79f6fea2}\label{io_8h_a6beded3f171517df3902c52f79f6fea2} 
+\#define {\bfseries BG\+\_\+\+WHITE}~"{}\textbackslash{}033\mbox{[}47m"{}
+\item 
+\Hypertarget{io_8h_a31ced3ddb66bc424a015426f3c098dd3}\label{io_8h_a31ced3ddb66bc424a015426f3c098dd3} 
+\#define {\bfseries BG\+\_\+\+RESET}~"{}\textbackslash{}033\mbox{[}49m"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{io_8h_a95738753c89dd9c35af01204737df60d}{Print\+Equation}} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}my\+\_\+coeff)
+\item 
+int \mbox{\hyperlink{io_8h_a5d6e4e028bc67c103f41a979c2262ce6}{Print\+Result}} (struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}my\+\_\+result)
+\item 
+int \mbox{\hyperlink{io_8h_aba504ec87faa7ea51699dcd654a79b53}{User\+Input}} (struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}my\+\_\+coeff)
+\item 
+double \mbox{\hyperlink{io_8h_a626c544eabbb13c54196a63d7a0a636e}{Input\+Number}} (const char \texorpdfstring{$\ast$}{*}prompt)
+\item 
+int \mbox{\hyperlink{io_8h_adf43867c24e06ba188378a08daf4d107}{Print\+Cat}} ()
+\item 
+int \mbox{\hyperlink{io_8h_ab6fce0591872166f8c6a88a26d3491e1}{Fill\+Buf}} (char buf\mbox{[}$\,$\mbox{]}, size\+\_\+t buf\+\_\+size)
+\item 
+int \mbox{\hyperlink{io_8h_ae9c8bebff63f204089c93e7277d790c9}{PrintA}} (double a)
+\item 
+int \mbox{\hyperlink{io_8h_a7477db125c8b748662c95898ad5c8e1d}{PrintB}} (double b, int \texorpdfstring{$\ast$}{*}first\+\_\+print)
+\item 
+int \mbox{\hyperlink{io_8h_aad98b927bf9a9920c6bf00de93159a39}{PrintC}} (double c, int \texorpdfstring{$\ast$}{*}first\+\_\+print)
+\item 
+int \mbox{\hyperlink{io_8h_a4a9c01cdc0f92c2971ff992e838714a5}{Print\+Test\+Error}} (const struct \mbox{\hyperlink{struct_test}{Test}} \texorpdfstring{$\ast$}{*}failed\+\_\+test\+\_\+params, double x1\+\_\+ref, double x2\+\_\+ref)
+\item 
+bool \mbox{\hyperlink{io_8h_aaf0e3d45bdd7931ef0a2d686ec56dc7c}{Is\+Valid}} (double value, char \texorpdfstring{$\ast$}{*}end\+\_\+ptr, char \texorpdfstring{$\ast$}{*}first\+\_\+ptr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{io_8h_a36bc189fb5890a73e1e00d53972cb90c}\label{io_8h_a36bc189fb5890a73e1e00d53972cb90c} 
+const int {\bfseries BUF\+\_\+\+SIZE} = 100
+\item 
+\Hypertarget{io_8h_a1921fd4cccf84a70fcdd968e1b415751}\label{io_8h_a1921fd4cccf84a70fcdd968e1b415751} 
+const int {\bfseries SQUARE\+\_\+\+SYMBOL} = 253
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл \doxylink{io_8h}{io.\+h}. 
+
+Данный файл содержит в себе макросы, константу и функции, используемые в программе. 
+
+\label{doc-func-members}
+\Hypertarget{io_8h_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{io_8h_ab6fce0591872166f8c6a88a26d3491e1}\index{io.h@{io.h}!FillBuf@{FillBuf}}
+\index{FillBuf@{FillBuf}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{FillBuf()}{FillBuf()}}
+{\footnotesize\ttfamily \label{io_8h_ab6fce0591872166f8c6a88a26d3491e1} 
+int Fill\+Buf (\begin{DoxyParamCaption}\item[{char}]{buf}{\mbox{[}$\,$\mbox{]}, }\item[{size\+\_\+t}]{buf\+\_\+size}{}\end{DoxyParamCaption})}
+
+Заполняет буфер из stdin 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em buf} & -\/ массив типа char \\
+\hline
+\mbox{\texttt{in}}  & {\em buf\+\_\+size} & -\/ размер массива типа size\+\_\+t \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+0, если буфер был переполнен, иначе 1 
+\end{DoxyReturn}
+\Hypertarget{io_8h_a626c544eabbb13c54196a63d7a0a636e}\index{io.h@{io.h}!InputNumber@{InputNumber}}
+\index{InputNumber@{InputNumber}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{InputNumber()}{InputNumber()}}
+{\footnotesize\ttfamily \label{io_8h_a626c544eabbb13c54196a63d7a0a636e} 
+double Input\+Number (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{prompt}{}\end{DoxyParamCaption})}
+
+Получает и проверяет значение из stdin 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em prompt} & указатель на строковую константу, которая выводится перед получением значения \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+value -\/ полученное число, в случае неудачи считывания числа -\/ выводит соответствующую ошибку 
+\end{DoxyReturn}
+\Hypertarget{io_8h_aaf0e3d45bdd7931ef0a2d686ec56dc7c}\index{io.h@{io.h}!IsValid@{IsValid}}
+\index{IsValid@{IsValid}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{IsValid()}{IsValid()}}
+{\footnotesize\ttfamily \label{io_8h_aaf0e3d45bdd7931ef0a2d686ec56dc7c} 
+bool Is\+Valid (\begin{DoxyParamCaption}\item[{double}]{value}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{end\+\_\+ptr}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{first\+\_\+ptr}{}\end{DoxyParamCaption})}
+
+Проверяет значение value \begin{DoxyReturn}{Возвращает}
+true, если число корректное, иначе false 
+\end{DoxyReturn}
+\Hypertarget{io_8h_ae9c8bebff63f204089c93e7277d790c9}\index{io.h@{io.h}!PrintA@{PrintA}}
+\index{PrintA@{PrintA}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{PrintA()}{PrintA()}}
+{\footnotesize\ttfamily \label{io_8h_ae9c8bebff63f204089c93e7277d790c9} 
+int PrintA (\begin{DoxyParamCaption}\item[{double}]{a}{}\end{DoxyParamCaption})}
+
+Выводит перый член уравнения \Hypertarget{io_8h_a7477db125c8b748662c95898ad5c8e1d}\index{io.h@{io.h}!PrintB@{PrintB}}
+\index{PrintB@{PrintB}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{PrintB()}{PrintB()}}
+{\footnotesize\ttfamily \label{io_8h_a7477db125c8b748662c95898ad5c8e1d} 
+int PrintB (\begin{DoxyParamCaption}\item[{double}]{b}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{first\+\_\+print}{}\end{DoxyParamCaption})}
+
+Выводит второй член уравнения \Hypertarget{io_8h_aad98b927bf9a9920c6bf00de93159a39}\index{io.h@{io.h}!PrintC@{PrintC}}
+\index{PrintC@{PrintC}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{PrintC()}{PrintC()}}
+{\footnotesize\ttfamily \label{io_8h_aad98b927bf9a9920c6bf00de93159a39} 
+int PrintC (\begin{DoxyParamCaption}\item[{double}]{c}{, }\item[{int \texorpdfstring{$\ast$}{*}}]{first\+\_\+print}{}\end{DoxyParamCaption})}
+
+Выводит третий член уравнения \Hypertarget{io_8h_adf43867c24e06ba188378a08daf4d107}\index{io.h@{io.h}!PrintCat@{PrintCat}}
+\index{PrintCat@{PrintCat}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{PrintCat()}{PrintCat()}}
+{\footnotesize\ttfamily \label{io_8h_adf43867c24e06ba188378a08daf4d107} 
+int Print\+Cat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Выводит котика \+:) \Hypertarget{io_8h_a95738753c89dd9c35af01204737df60d}\index{io.h@{io.h}!PrintEquation@{PrintEquation}}
+\index{PrintEquation@{PrintEquation}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{PrintEquation()}{PrintEquation()}}
+{\footnotesize\ttfamily \label{io_8h_a95738753c89dd9c35af01204737df60d} 
+int Print\+Equation (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}}]{my\+\_\+coeff}{}\end{DoxyParamCaption})}
+
+Выводит уравнение 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em my\+\_\+coeff} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{io_8h_a5d6e4e028bc67c103f41a979c2262ce6}\index{io.h@{io.h}!PrintResult@{PrintResult}}
+\index{PrintResult@{PrintResult}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{PrintResult()}{PrintResult()}}
+{\footnotesize\ttfamily \label{io_8h_a5d6e4e028bc67c103f41a979c2262ce6} 
+int Print\+Result (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}}]{my\+\_\+result}{}\end{DoxyParamCaption})}
+
+Выводит результат работы программы 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em my\+\_\+result} & указатель на структуру типа \doxylink{struct_result}{Result} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{io_8h_a4a9c01cdc0f92c2971ff992e838714a5}\index{io.h@{io.h}!PrintTestError@{PrintTestError}}
+\index{PrintTestError@{PrintTestError}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{PrintTestError()}{PrintTestError()}}
+{\footnotesize\ttfamily \label{io_8h_a4a9c01cdc0f92c2971ff992e838714a5} 
+int Print\+Test\+Error (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{struct_test}{Test}} \texorpdfstring{$\ast$}{*}}]{failed\+\_\+test\+\_\+params}{, }\item[{double}]{x1\+\_\+ref}{, }\item[{double}]{x2\+\_\+ref}{}\end{DoxyParamCaption})}
+
+Выводит сообщение о провале теста 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em failed\+\_\+test\+\_\+params} & указатель на структуру, содержащую коэффиценты и верные корни \\
+\hline
+\mbox{\texttt{in}}  & {\em x1\+\_\+ref} & Результат, посчитаный программой \\
+\hline
+\mbox{\texttt{in}}  & {\em x2\+\_\+ref} & Результат, посчитаный программой \\
+\hline
+\end{DoxyParams}
+\Hypertarget{io_8h_aba504ec87faa7ea51699dcd654a79b53}\index{io.h@{io.h}!UserInput@{UserInput}}
+\index{UserInput@{UserInput}!io.h@{io.h}}
+\doxysubsubsection{\texorpdfstring{UserInput()}{UserInput()}}
+{\footnotesize\ttfamily \label{io_8h_aba504ec87faa7ea51699dcd654a79b53} 
+int User\+Input (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}}]{my\+\_\+coeff}{}\end{DoxyParamCaption})}
+
+Запрашивает ввод коэффицентов 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em my\+\_\+coeff} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
+\hline
+\end{DoxyParams}

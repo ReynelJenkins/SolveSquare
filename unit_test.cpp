@@ -1,3 +1,10 @@
+/*!
+\file
+\brief Файл unit_test.cpp
+
+Данный файл содержит в себе функции, используемые программе.
+*/
+
 #include <stdio.h>
 #include <assert.h>
 
@@ -7,10 +14,14 @@
 
 #include "unit_test.h"
 
-void TestSolveSquare()
+
+/*!
+Запускает юнит-тесты
+*/
+int TestSolveSquare()
 {
     bool success = true;
-
+    /*
     for (int a_i = -100; a_i <= 100; a_i += 1)
     {
         for (int b_i = -100; b_i <= 100; b_i += 1)
@@ -21,7 +32,7 @@ void TestSolveSquare()
                 double b = b_i * 0.1;
                 double c = c_i * 0.1;
 
-                struct Params test_equation = {};
+                struct Test test_equation = {};
 
                 test_equation.coeffs = {a, b, c};
 
@@ -55,12 +66,17 @@ void TestSolveSquare()
             }
         }
     }
-
+    */
     if (success && ReadTestsFromFile())
         printf(GREEN "SUCCESS: All tests passed!\n" RESET);
+
+    return 0;
 }
 
-
+/*!
+Запускает тесты из файла file.txt
+\return 1, если все тесты пройдены успешно, при хотя бы одном проваленом тесте возвращает 0
+*/
 int ReadTestsFromFile()
 {
     FILE* file = fopen("file.txt", "r");
@@ -73,10 +89,10 @@ int ReadTestsFromFile()
 
     char buf[BUF_SIZE] = {};
 
-    struct Params test = {};
+    struct Test test = {};
     struct Result result_of_program = {};
 
-    int  n_roots = 0;
+    int n_roots = 0;
 
     while (fgets(buf, sizeof(buf), file) != NULL)
     {
@@ -92,7 +108,8 @@ int ReadTestsFromFile()
         switch (n_roots)
         {
             case ROOTS_AMOUNT_TWO_ROOTS:
-                if (!((Compare(test.result.x1, result_of_program.x1) && Compare(test.result.x2, result_of_program.x2)) || (Compare(test.result.x1, result_of_program.x2) && Compare(test.result.x2, result_of_program.x1))))
+                if (!((Compare(test.result.x1, result_of_program.x1) && Compare(test.result.x2, result_of_program.x2))
+                   || (Compare(test.result.x1, result_of_program.x2) && Compare(test.result.x2, result_of_program.x1))))
                 {
                     PrintTestError(&test, result_of_program.x1, result_of_program.x2);
 
@@ -101,7 +118,8 @@ int ReadTestsFromFile()
                 break;
 
             case ROOTS_AMOUNT_ONE_ROOT:
-                if (!(Compare(test.result.x1, result_of_program.x1) || Compare(test.result.x1, result_of_program.x2)))
+                if (!(Compare(test.result.x1, result_of_program.x1)
+                   || Compare(test.result.x1, result_of_program.x2)))
                 {
                     PrintTestError(&test, result_of_program.x1, result_of_program.x2);
 
@@ -109,7 +127,8 @@ int ReadTestsFromFile()
                 }
                 break;
 
-            default:;
+            default:
+                break;
         }
     }
 

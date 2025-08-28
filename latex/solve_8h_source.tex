@@ -1,35 +1,36 @@
 \doxysection{solve.\+h}
-\hypertarget{solve_8h_source}{}\label{solve_8h_source}
+\hypertarget{solve_8h_source}{}\label{solve_8h_source}\mbox{\hyperlink{solve_8h}{См. документацию.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ SOLVE\_H}}
-\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ SOLVE\_H}}
-\DoxyCodeLine{00003\ }
-\DoxyCodeLine{00004\ }
-\DoxyCodeLine{00005\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_coefficients}{Coefficients}}\ \{}
-\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{double}\ a,\ b,\ c;}
-\DoxyCodeLine{00007\ \};}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_result}{Result}}\ \{}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordtype}{double}\ x1,\ x2;}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_roots;}
-\DoxyCodeLine{00012\ \};}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_params}{Params}}\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_coefficients}{Coefficients}}\ coeffs;}
-\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_result}{Result}}\ result;}
-\DoxyCodeLine{00017\ \};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keyword}{enum}\ RootsAmount}
-\DoxyCodeLine{00020\ \{}
-\DoxyCodeLine{00021\ \ \ \ \ ROOTS\_AMOUNT\_ERR\_CODE\ =\ -\/2,}
-\DoxyCodeLine{00022\ \ \ \ \ ROOTS\_AMOUNT\_INF\_ROOTS\ =\ -\/1,}
-\DoxyCodeLine{00023\ \ \ \ \ ROOTS\_AMOUNT\_NO\_ROOTS\ =\ 0,}
-\DoxyCodeLine{00024\ \ \ \ \ ROOTS\_AMOUNT\_ONE\_ROOT\ =\ 1,}
-\DoxyCodeLine{00025\ \ \ \ \ ROOTS\_AMOUNT\_TWO\_ROOTS\ =\ 2}
-\DoxyCodeLine{00026\ \};}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \textcolor{keywordtype}{int}\ SolveSquare(\textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_params}{Params}}\ *equation\_params);}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SOLVE\_H}}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ SOLVE\_H}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ SOLVE\_H}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_coefficients}{Coefficients}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keywordtype}{double}\ a,\ b,\ c;}
+\DoxyCodeLine{00014\ \};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_result}{Result}}\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{double}\ x1,\ x2;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_roots;}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36a}{RootsAmount}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa30c97e9c57b82a69bd71bd797f176167}{ROOTS\_AMOUNT\_ERR\_CODE}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ -\/2,\ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aaa68d36208116bf3478441b390b88ae8a}{ROOTS\_AMOUNT\_INF\_ROOTS}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ -\/1,\ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa43e454b4bb50f7ce25a3158134e6755d}{ROOTS\_AMOUNT\_NO\_ROOTS}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ 0,\ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa2db6f5cedfe655ff081d3091318c4df8}{ROOTS\_AMOUNT\_ONE\_ROOT}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ 1,\ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aad46ad92254baf31188c089154f214925}{ROOTS\_AMOUNT\_TWO\_ROOTS}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ =\ \ 2,\ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa65645e475b7039bded5dcd87f1507f8a}{ROOTS\_AMOUNT\_ROOT\_NOT\_FINITE}}\ \ \ \ \ \ \ \ \ =\ \ 3,\ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{solve_8h_acece6ada5ef5bc82f9d75a03131af36aa1f13827d020e55b893ce8dda42a12083}{ROOTS\_AMOUNT\_DISCRIMINANT\_NOT\_FINITE}}\ =\ \ 4\ \ \ }
+\DoxyCodeLine{00033\ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{solve_8h_ad601f5d0420aae423e26d3a4e63a0447}{SolveSquare}}(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_coefficients}{Coefficients}}\ *coeffs,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_result}{Result}}\ *result);}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{solve_8h_a828f5e215c8ec3130a6ee5233a0c858d}{SolveLinearEquation}}(\textcolor{keywordtype}{double}\ b,\ \textcolor{keywordtype}{double}\ c,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_result}{Result}}\ *result);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{int}\ SolveSpecialCase(\textcolor{keyword}{const}\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_coefficients}{Coefficients}}\ *coeffs,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{struct_result}{Result}}\ *result);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//SOLVE\_H}}
 
 \end{DoxyCode}

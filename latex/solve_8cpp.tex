@@ -1,0 +1,89 @@
+\doxysection{Файл solve.\+cpp}
+\hypertarget{solve_8cpp}{}\label{solve_8cpp}\index{solve.cpp@{solve.cpp}}
+
+
+Файл \doxylink{solve_8cpp}{solve.\+cpp}.  
+
+
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include "{}floating.\+h"{}}\newline
+{\ttfamily \#include "{}solve.\+h"{}}\newline
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{solve_8cpp_a88e50982dbbcf8bf7cb788d4fc2e44c5}{MY\+\_\+\+ASSERT}}(condition)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{solve_8cpp_ad601f5d0420aae423e26d3a4e63a0447}{Solve\+Square}} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}coeffs, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
+\item 
+int \mbox{\hyperlink{solve_8cpp_a828f5e215c8ec3130a6ee5233a0c858d}{Solve\+Linear\+Equation}} (double b, double c, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
+\item 
+\Hypertarget{solve_8cpp_a379127f7b19d87cbb022b68c3a99bf58}\label{solve_8cpp_a379127f7b19d87cbb022b68c3a99bf58} 
+int {\bfseries Solve\+Special\+Case} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}coeffs, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Файл \doxylink{solve_8cpp}{solve.\+cpp}. 
+
+Данный файл содержит в себе функции и макрос, используемые в программе. 
+
+\label{doc-define-members}
+\Hypertarget{solve_8cpp_doc-define-members}
+\doxysubsection{Макросы}
+\Hypertarget{solve_8cpp_a88e50982dbbcf8bf7cb788d4fc2e44c5}\index{solve.cpp@{solve.cpp}!MY\_ASSERT@{MY\_ASSERT}}
+\index{MY\_ASSERT@{MY\_ASSERT}!solve.cpp@{solve.cpp}}
+\doxysubsubsection{\texorpdfstring{MY\_ASSERT}{MY\_ASSERT}}
+{\footnotesize\ttfamily \label{solve_8cpp_a88e50982dbbcf8bf7cb788d4fc2e44c5} 
+\#define MY\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{condition}{}\end{DoxyParamCaption})}
+
+{\bfseries Макроопределение\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (!(condition))\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Assertion\ failed:\ \%s,\ file\ \%s,\ line\ \%d\(\backslash\)n"{}},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#condition,\ \_\_FILE\_\_,\ \_\_LINE\_\_);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ abort();\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+\label{doc-func-members}
+\Hypertarget{solve_8cpp_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{solve_8cpp_a828f5e215c8ec3130a6ee5233a0c858d}\index{solve.cpp@{solve.cpp}!SolveLinearEquation@{SolveLinearEquation}}
+\index{SolveLinearEquation@{SolveLinearEquation}!solve.cpp@{solve.cpp}}
+\doxysubsubsection{\texorpdfstring{SolveLinearEquation()}{SolveLinearEquation()}}
+{\footnotesize\ttfamily \label{solve_8cpp_a828f5e215c8ec3130a6ee5233a0c858d} 
+int Solve\+Linear\+Equation (\begin{DoxyParamCaption}\item[{double}]{b}{, }\item[{double}]{c}{, }\item[{struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}}]{result}{}\end{DoxyParamCaption})}
+
+Решает линейное уравнение 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em coeffs} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
+\hline
+\mbox{\texttt{out}}  & {\em result} & указатель на структуру типа \doxylink{struct_result}{Result} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Количество корней 
+\end{DoxyReturn}
+\Hypertarget{solve_8cpp_ad601f5d0420aae423e26d3a4e63a0447}\index{solve.cpp@{solve.cpp}!SolveSquare@{SolveSquare}}
+\index{SolveSquare@{SolveSquare}!solve.cpp@{solve.cpp}}
+\doxysubsubsection{\texorpdfstring{SolveSquare()}{SolveSquare()}}
+{\footnotesize\ttfamily \label{solve_8cpp_ad601f5d0420aae423e26d3a4e63a0447} 
+int Solve\+Square (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}}]{coeffs}{, }\item[{struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}}]{result}{}\end{DoxyParamCaption})}
+
+Решает квадратное уравнение 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em coeffs} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
+\hline
+\mbox{\texttt{out}}  & {\em result} & указатель на структуру типа \doxylink{struct_result}{Result} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Количество корней 
+\end{DoxyReturn}

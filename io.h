@@ -1,3 +1,10 @@
+/*!
+\file
+\brief Заголовочный файл io.h
+
+Данный файл содержит в себе макросы, константу и функции, используемые в программе.
+*/
+
 #ifndef IO_H
 #define IO_H
 
@@ -23,9 +30,16 @@ int PrintEquation(const struct Coefficients* my_coeff);
 int PrintResult(struct Result* my_result);
 int UserInput(struct Coefficients* my_coeff);
 double InputNumber(const char* prompt);
-void PrintCat();
-void PrintTestError(const struct Params *failed_test_params, double x1_ref, double x2_ref);
+int PrintCat();
+int FillBuf(char buf[], size_t buf_size);
+int PrintA(double a);
+int PrintB(double b, int *first_print);
+int PrintC(double c, int *first_print);
+int PrintTestError(const struct Test *failed_test_params, double x1_ref, double x2_ref);
+bool IsValid(double value, char *end_ptr, char *first_ptr);
 
 const int BUF_SIZE = 100;
+const int SQUARE_SYMBOL = 253;
+
 
 #endif  //IO_H

@@ -1,0 +1,58 @@
+\doxysection{Файл floating.\+h}
+\hypertarget{floating_8h}{}\label{floating_8h}\index{floating.h@{floating.h}}
+
+
+Заголовочный файл \doxylink{floating_8h}{floating.\+h}.  
+
+
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{floating_8h_ae14fb4b4cfd961db8e279782f175c1d8}{Is\+Zero}} (double val)
+\item 
+bool \mbox{\hyperlink{floating_8h_a0c73d35e837efa5f0a543df2a97b8ba0}{Compare}} (double val1, double val2)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{floating_8h_a8a5e4938cffe9111b3c9dbc1068fa933}\label{floating_8h_a8a5e4938cffe9111b3c9dbc1068fa933} 
+const double {\bfseries MIN\+\_\+\+DIFF} = 1e-\/6
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Заголовочный файл \doxylink{floating_8h}{floating.\+h}. 
+
+Данный файл содержит в себе определения констант и функций, используемых в программе. 
+
+\label{doc-func-members}
+\Hypertarget{floating_8h_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{floating_8h_a0c73d35e837efa5f0a543df2a97b8ba0}\index{floating.h@{floating.h}!Compare@{Compare}}
+\index{Compare@{Compare}!floating.h@{floating.h}}
+\doxysubsubsection{\texorpdfstring{Compare()}{Compare()}}
+{\footnotesize\ttfamily \label{floating_8h_a0c73d35e837efa5f0a543df2a97b8ba0} 
+bool Compare (\begin{DoxyParamCaption}\item[{double}]{val1}{, }\item[{double}]{val2}{}\end{DoxyParamCaption})}
+
+Сравнивает дла числа типа double 
+\begin{DoxyParams}{Аргументы}
+{\em val1,val2} & Сравниваемые числа \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Если числа можно считать равными true, иначе false 
+\end{DoxyReturn}
+\Hypertarget{floating_8h_ae14fb4b4cfd961db8e279782f175c1d8}\index{floating.h@{floating.h}!IsZero@{IsZero}}
+\index{IsZero@{IsZero}!floating.h@{floating.h}}
+\doxysubsubsection{\texorpdfstring{IsZero()}{IsZero()}}
+{\footnotesize\ttfamily \label{floating_8h_ae14fb4b4cfd961db8e279782f175c1d8} 
+bool Is\+Zero (\begin{DoxyParamCaption}\item[{double}]{val}{}\end{DoxyParamCaption})}
+
+Проверяет, является ли число типа double нулем 
+\begin{DoxyParams}{Аргументы}
+{\em val} & Проверяемое число \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если число можно считать нулем, иначе false 
+\end{DoxyReturn}
