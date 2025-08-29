@@ -12,12 +12,15 @@
 #include "floating.h"
 #include "solve.h"
 
-#define MY_ASSERT(condition) \
-    if (!(condition)) { \
-        fprintf(stderr, "Assertion failed: %s, file %s, line %d\n", \
-                #condition, __FILE__, __LINE__); \
-        abort(); \
-    }
+#define MY_ASSERT(condition)                                                \
+    do                                                                      \
+    {                                                                       \
+        if (!(condition)) {                                                 \
+            fprintf(stderr, "Assertion failed: %s, file %s, line %d\n",     \
+                    #condition, __FILE__, __LINE__);                        \
+            abort();                                                        \
+        }                                                                   \
+    } while(0)
 
 /*!
 –ешает квадратное уравнение
@@ -125,6 +128,12 @@ int SolveLinearEquation(const struct Coefficients *coeffs, struct Result *result
     return ROOTS_AMOUNT_ONE_ROOT;
 }
 
+/*!
+–ешает особые случаи квадратного уравнени€
+\param[in] coeffs указатель на структуру типа Coefficients
+\param[out] result указатель на структуру типа Result
+\return  оличество корней
+*/
 int SolveSpecialCase(const struct Coefficients *coeffs, struct Result *result)
 {
     double a = coeffs->a;

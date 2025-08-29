@@ -123,8 +123,7 @@ $(function(){initNavTree('solve_8h.html','',''); });
 Функции</h2></td></tr>
 <tr class="memitem:ad601f5d0420aae423e26d3a4e63a0447" id="r_ad601f5d0420aae423e26d3a4e63a0447"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad601f5d0420aae423e26d3a4e63a0447">SolveSquare</a> (const struct <a class="el" href="struct_coefficients.html">Coefficients</a> *coeffs, struct <a class="el" href="struct_result.html">Result</a> *result)</td></tr>
 <tr class="memitem:a96735891409a1947cc4a6f9bf14468bf" id="r_a96735891409a1947cc4a6f9bf14468bf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a96735891409a1947cc4a6f9bf14468bf">SolveLinearEquation</a> (const struct <a class="el" href="struct_coefficients.html">Coefficients</a> *coeffs, struct <a class="el" href="struct_result.html">Result</a> *result)</td></tr>
-<tr class="memitem:a379127f7b19d87cbb022b68c3a99bf58" id="r_a379127f7b19d87cbb022b68c3a99bf58"><td class="memItemLeft" align="right" valign="top"><a id="a379127f7b19d87cbb022b68c3a99bf58" name="a379127f7b19d87cbb022b68c3a99bf58"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>SolveSpecialCase</b> (const struct <a class="el" href="struct_coefficients.html">Coefficients</a> *coeffs, struct <a class="el" href="struct_result.html">Result</a> *result)</td></tr>
+<tr class="memitem:a379127f7b19d87cbb022b68c3a99bf58" id="r_a379127f7b19d87cbb022b68c3a99bf58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a379127f7b19d87cbb022b68c3a99bf58">SolveSpecialCase</a> (const struct <a class="el" href="struct_coefficients.html">Coefficients</a> *coeffs, struct <a class="el" href="struct_result.html">Result</a> *result)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Заголовочный файл <a class="el" href="solve_8h.html" title="Заголовочный файл solve.h.">solve.h</a>. </p>
@@ -182,6 +181,35 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>SolveSpecialCase</b> (
       </table>
 </div><div class="memdoc">
 <p>Решает линейное уравнение </p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td>указатель на структуру типа <a class="el" href="struct_coefficients.html" title="Структура содержащая три переменных типа double - коэффиценты квадратного уравнения">Coefficients</a> </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">result</td><td>указатель на структуру типа <a class="el" href="struct_result.html" title="Структура содержащая две переменных типа double - решения квадратного уравнения и одну переменную тип...">Result</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Количество корней </dd></dl>
+
+</div>
+</div>
+<a id="a379127f7b19d87cbb022b68c3a99bf58" name="a379127f7b19d87cbb022b68c3a99bf58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a379127f7b19d87cbb022b68c3a99bf58">&#9670;&#160;</a></span>SolveSpecialCase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SolveSpecialCase </td>
+          <td>(</td>
+          <td class="paramtype">const struct <a class="el" href="struct_coefficients.html">Coefficients</a> *</td>          <td class="paramname"><span class="paramname"><em>coeffs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="struct_result.html">Result</a> *</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Решает особые случаи квадратного уравнения </p><dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">coeffs</td><td>указатель на структуру типа <a class="el" href="struct_coefficients.html" title="Структура содержащая три переменных типа double - коэффиценты квадратного уравнения">Coefficients</a> </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">result</td><td>указатель на структуру типа <a class="el" href="struct_result.html" title="Структура содержащая две переменных типа double - решения квадратного уравнения и одну переменную тип...">Result</a> </td></tr>

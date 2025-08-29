@@ -22,8 +22,7 @@ int \mbox{\hyperlink{solve_8cpp_ad601f5d0420aae423e26d3a4e63a0447}{Solve\+Square
 \item 
 int \mbox{\hyperlink{solve_8cpp_a96735891409a1947cc4a6f9bf14468bf}{Solve\+Linear\+Equation}} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}coeffs, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
 \item 
-\Hypertarget{solve_8cpp_a379127f7b19d87cbb022b68c3a99bf58}\label{solve_8cpp_a379127f7b19d87cbb022b68c3a99bf58} 
-int {\bfseries Solve\+Special\+Case} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}coeffs, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
+int \mbox{\hyperlink{solve_8cpp_a379127f7b19d87cbb022b68c3a99bf58}{Solve\+Special\+Case}} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}coeffs, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
 \end{DoxyCompactItemize}
 
 
@@ -43,11 +42,14 @@ int {\bfseries Solve\+Special\+Case} (const struct \mbox{\hyperlink{struct_coeff
 
 {\bfseries Макроопределение\+:}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (!(condition))\ \{\ \(\backslash\)}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Assertion\ failed:\ \%s,\ file\ \%s,\ line\ \%d\(\backslash\)n"{}},\ \(\backslash\)}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#condition,\ \_\_FILE\_\_,\ \_\_LINE\_\_);\ \(\backslash\)}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ abort();\ \(\backslash\)}
-\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{do}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (!(condition))\ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ fprintf(stderr,\ \textcolor{stringliteral}{"{}Assertion\ failed:\ \%s,\ file\ \%s,\ line\ \%d\(\backslash\)n"{}},\ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \#condition,\ \_\_FILE\_\_,\ \_\_LINE\_\_);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ abort();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{while}(0)}
 
 \end{DoxyCode}
 
@@ -62,6 +64,22 @@ int {\bfseries Solve\+Special\+Case} (const struct \mbox{\hyperlink{struct_coeff
 int Solve\+Linear\+Equation (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}}]{coeffs}{, }\item[{struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}}]{result}{}\end{DoxyParamCaption})}
 
 Решает линейное уравнение 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em coeffs} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
+\hline
+\mbox{\texttt{out}}  & {\em result} & указатель на структуру типа \doxylink{struct_result}{Result} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Количество корней 
+\end{DoxyReturn}
+\Hypertarget{solve_8cpp_a379127f7b19d87cbb022b68c3a99bf58}\index{solve.cpp@{solve.cpp}!SolveSpecialCase@{SolveSpecialCase}}
+\index{SolveSpecialCase@{SolveSpecialCase}!solve.cpp@{solve.cpp}}
+\doxysubsubsection{\texorpdfstring{SolveSpecialCase()}{SolveSpecialCase()}}
+{\footnotesize\ttfamily \label{solve_8cpp_a379127f7b19d87cbb022b68c3a99bf58} 
+int Solve\+Special\+Case (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}}]{coeffs}{, }\item[{struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}}]{result}{}\end{DoxyParamCaption})}
+
+Решает особые случаи квадратного уравнения 
 \begin{DoxyParams}[1]{Аргументы}
 \mbox{\texttt{in}}  & {\em coeffs} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
 \hline

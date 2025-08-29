@@ -12,5 +12,6 @@ var solve_8h =
       [ "ROOTS_AMOUNT_DISCRIMINANT_NOT_FINITE", "solve_8h.html#acece6ada5ef5bc82f9d75a03131af36aa1f13827d020e55b893ce8dda42a12083", null ]
     ] ],
     [ "SolveLinearEquation", "solve_8h.html#a96735891409a1947cc4a6f9bf14468bf", null ],
+    [ "SolveSpecialCase", "solve_8h.html#a379127f7b19d87cbb022b68c3a99bf58", null ],
     [ "SolveSquare", "solve_8h.html#ad601f5d0420aae423e26d3a4e63a0447", null ]
 ];

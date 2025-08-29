@@ -33,8 +33,7 @@ int \mbox{\hyperlink{solve_8h_ad601f5d0420aae423e26d3a4e63a0447}{Solve\+Square}}
 \item 
 int \mbox{\hyperlink{solve_8h_a96735891409a1947cc4a6f9bf14468bf}{Solve\+Linear\+Equation}} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}coeffs, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
 \item 
-\Hypertarget{solve_8h_a379127f7b19d87cbb022b68c3a99bf58}\label{solve_8h_a379127f7b19d87cbb022b68c3a99bf58} 
-int {\bfseries Solve\+Special\+Case} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}coeffs, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
+int \mbox{\hyperlink{solve_8h_a379127f7b19d87cbb022b68c3a99bf58}{Solve\+Special\+Case}} (const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}coeffs, struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}result)
 \end{DoxyCompactItemize}
 
 
@@ -98,6 +97,22 @@ ROOTS\+\_\+\+AMOUNT\+\_\+\+DISCRIMINANT\+\_\+\+NOT\+\_\+\+FINITE&Указыва�
 int Solve\+Linear\+Equation (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}}]{coeffs}{, }\item[{struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}}]{result}{}\end{DoxyParamCaption})}
 
 Решает линейное уравнение 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{in}}  & {\em coeffs} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
+\hline
+\mbox{\texttt{out}}  & {\em result} & указатель на структуру типа \doxylink{struct_result}{Result} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Количество корней 
+\end{DoxyReturn}
+\Hypertarget{solve_8h_a379127f7b19d87cbb022b68c3a99bf58}\index{solve.h@{solve.h}!SolveSpecialCase@{SolveSpecialCase}}
+\index{SolveSpecialCase@{SolveSpecialCase}!solve.h@{solve.h}}
+\doxysubsubsection{\texorpdfstring{SolveSpecialCase()}{SolveSpecialCase()}}
+{\footnotesize\ttfamily \label{solve_8h_a379127f7b19d87cbb022b68c3a99bf58} 
+int Solve\+Special\+Case (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{struct_coefficients}{Coefficients}} \texorpdfstring{$\ast$}{*}}]{coeffs}{, }\item[{struct \mbox{\hyperlink{struct_result}{Result}} \texorpdfstring{$\ast$}{*}}]{result}{}\end{DoxyParamCaption})}
+
+Решает особые случаи квадратного уравнения 
 \begin{DoxyParams}[1]{Аргументы}
 \mbox{\texttt{in}}  & {\em coeffs} & указатель на структуру типа \doxylink{struct_coefficients}{Coefficients} \\
 \hline
